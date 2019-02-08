@@ -3,7 +3,7 @@
 * Author: Ibraheem Kolawole
 * Date: February 11, 2019
 * Purpose: Check time and give appropriate greetings
-* Requires: 
+* Requires: php internal time() method, getdate() method.
 ****************************************/
 
     date_default_timezone_set('America/Edmonton');

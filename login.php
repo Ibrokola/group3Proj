@@ -1,5 +1,5 @@
 <?php 
-    // include_once('top.php');
+    include_once('php/includes/session_top.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login | Travel Experts</title>
 
     <link href="https://fonts.googleapis.com/css?family=Marck+Script|Aclonica|Berkshire+Swash|Metrophobic" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -32,7 +32,7 @@
     <div class="container">
         <h1 class="display-4 register-greetings h1-responsive">Login</h1>
         <hr class="my-4">
-        <p class="lead register-heading">Welcome to Travel Experts</p>
+        <p class="lead register-heading">Welcome to Travel Experts, Login to continue</p>
     </div>
 </div>
 
@@ -51,67 +51,54 @@
         <div class="" id="">
             <?php 
 
-                // include_once('page4.php');
-                // 2nd to last assignment...
-
-                if(isset($_POST['submit'])) {
-                    $user_list = GetUsers();
-                    $users = array();
-
-                    foreach($user_array as $row) {
-                        $item = explod(",", $row);
-                        $users[trim($items[0])] = trim($items[1]);
-                    }
-                    return $users;
-                }
+                include_once('php/includes/functions.php');
 
                 if (isset($_POST['submit'])) {
-                    $user_list = GetUsers();
+                    $user_list = getUsers();
                     if (isset($user_list[$_POST["username"]])) {
                         if ($user_list[$_POST['username']] === $_POST["password"]){
                             print("You are logged in!");
                             $_SESSION["logged_in"] = true;
-                            header("Location: http://localhost/assignment/newagent.php");
+                            header("Location: http://localhost/newAgent.php");
                         } else {
                             print("That was not a correct username or password, please try again.");
                         }
+                    } else {
+                        print("That was not a correct username or password, please try again.");
                     }
-                } else {
-                    print("That was not a correct username or password, please try again.");
                 }
             ?>
-            <section>
-            <h2 class="text-center">Login  </h2>
+            <div>
             <br>
             <br>
-            <form name="registerForm" method="post" action="#">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <form method="post" action="#">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
 
-                        <label for="username"> <strong>Username</strong> </label>
-                        <input type="text" class="form-control focus validate" name="username" 
-                        id="username" maxlength=20 placeholder="First Name">
-                        
+                            <label for="username"> <strong>Username</strong> </label>
+                            <input type="text" class="form-control focus validate" name="username" 
+                            id="username" maxlength=20 placeholder="First Name">
+                            
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
 
-                        <label for="password"> <strong>Password</strong> </label>
-                        <input type="password" class="form-control focus validate" name="password" 
-                        id="password" maxlength=20 placeholder="Password">
-                        
+                            <label for="password"> <strong>Password</strong> </label>
+                            <input type="password" class="form-control focus validate" name="password" 
+                            id="password" maxlength=20 placeholder="Password">
+                            
+                        </div>
                     </div>
-                </div>
-            </form>
-            </section>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="submit" class="btn btn-outline-success btn-block btn-outline" value="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        
-        <!-- <form action="#" method="post" enctype="multipart/form-data">
-            <h3>Please be careful uploading a file</h3>
-            <input type="file" name="upload">
-            <input type="submit" class='btn btn-success' value='submit'>
-        </form> -->
+
     </div>
 </div>
 </div>

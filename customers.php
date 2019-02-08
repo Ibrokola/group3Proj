@@ -1,11 +1,11 @@
 <?php
-    include_once("top.php");
+    include_once("php/includes/session_top.php");
 
     // include_once("page6.php");
 
-    include_once("page4.php");
+    // include_once("page4.php");
 
-    GetCustomers(); // getting an array of customer objects...
+    // GetCustomers(); // getting an array of customer objects...
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Day 7 Class, OOP</title>
+    <title>Customers | Travel Experts</title>
 
     <link href="https://fonts.googleapis.com/css?family=Marck+Script|Aclonica|Berkshire+Swash|Metrophobic" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -36,9 +36,9 @@
 
 <div class="jumbotron jumbotron-fluid jumbotron-php">
 <div class="container">
-    <h1 class="display-4 register-greetings h1-responsive">Php Class</h1>
+    <h1 class="display-4 register-greetings h1-responsive">Customers</h1>
     <hr class="my-4">
-    <p class="lead register-heading">7th Class PHP</p>
+    <p class="lead register-heading">Customers list</p>
 </div>
 </div>
 
@@ -56,23 +56,23 @@
         <div class="table-responsive-sm container" id="php-table-container">
             <table class='table table-hover'>
                 <?php 
-                    foreach($customers as $cust) {
-                        print("<tr>");
+                    // foreach($customers as $cust) {
+                    //     print("<tr>");
                         
-                        print("<td>" . $cust->id . "</td>");
-                        print("<td>" . $cust . "</td>");
-                        print("<td>" . $cust->address . "</td>");
-                        print("<td>" . $cust->city . "</td>");
-                        print("<td>" . $cust->prov . "</td>");
-                        print("<td>" . $cust->postal . "</td>");
-                        print("<td>" . $cust->country . "</td>");
-                        print("<td>" . $cust->homePhone . "</td>");
-                        print("<td>" . $cust->busPhone . "</td>");
-                        print("<td>" . $cust->email . "</td>");
-                        print("<td>" . $cust->agentId . "</td>");
+                    //     print("<td>" . $cust->id . "</td>");
+                    //     print("<td>" . $cust . "</td>");
+                    //     print("<td>" . $cust->address . "</td>");
+                    //     print("<td>" . $cust->city . "</td>");
+                    //     print("<td>" . $cust->prov . "</td>");
+                    //     print("<td>" . $cust->postal . "</td>");
+                    //     print("<td>" . $cust->country . "</td>");
+                    //     print("<td>" . $cust->homePhone . "</td>");
+                    //     print("<td>" . $cust->busPhone . "</td>");
+                    //     print("<td>" . $cust->email . "</td>");
+                    //     print("<td>" . $cust->agentId . "</td>");
 
-                        print("</tr>");
-                    }
+                    //     print("</tr>");
+                    // }
                 ?>
             </table>
         </div>
