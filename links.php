@@ -54,40 +54,40 @@
 
                         <div class="table-responsive-sm container" id="php-table-container">
                             <?php
-
+                            
                                 $tableOpen = "<table class='table table-hover'>";
                                 $tableClose = "</table>";
-                                $rows = 6;
-                                $cols = 2;
+                                // $rows = 6;
+                                // $cols = 2;
 
-                                $row_no = 0;
+                                // $row_no = 0;
 
-                                $row_links = array(
-                                    'page1.php', 'page2.php', 'page3.php',
-                                    'page4.php', 'page5.php', 'page6.php',
-                                );
+                                // $row_links = array(
+                                //     'page1.php', 'page2.php', 'page3.php',
+                                //     'page4.php', 'page5.php', 'page6.php',
+                                // );
 
-                                $page_name = array(
-                                    'page1', 'page2', 'page3',
-                                    'page4', 'page5', 'page6',
-                                );
+                                // $page_name = array(
+                                //     'page1', 'page2', 'page3',
+                                //     'page4', 'page5', 'page6',
+                                // );
 
-                                echo $tableOpen;
-                                    echo "<tr> <th>Serial no.</th> <th>Links</th> </tr>";
+                                // echo $tableOpen;
+                                //     echo "<tr> <th>Serial no.</th> <th>Links</th> </tr>";
 
-                                    for ($i = 0; $i < $rows; $i++) {
+                                //     for ($i = 0; $i < $rows; $i++) {
                                         
-                                        $row_no ++;
+                                //         $row_no ++;
 
-                                        echo "<tr>";
+                                //         echo "<tr>";
                                         
-                                        echo "<td> $row_no </td> <td> <a href='$row_links[$i]' target='_blank'> $page_name[$i] </a></td>";
+                                //         echo "<td> $row_no </td> <td> <a href='$row_links[$i]' target='_blank'> $page_name[$i] </a></td>";
 
-                                        echo "</tr> \n <br>";
-                                    }
-                                echo $tableClose;
+                                //         echo "</tr> \n <br>";
+                                //     }
+                                // echo $tableClose;
 
-                                print("<br>");
+                                // print("<br>");
                                 
                                 include('php/includes/variables.php');
     

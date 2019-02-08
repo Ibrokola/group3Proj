@@ -1,14 +1,10 @@
-<?php 
-    include_once('top.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Day 6 Class</title>
+    <title>Test Agent Create| TravelExperts</title>
 
     <link href="https://fonts.googleapis.com/css?family=Marck+Script|Aclonica|Berkshire+Swash|Metrophobic" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -30,9 +26,9 @@
 
 <div class="jumbotron jumbotron-fluid jumbotron-php">
     <div class="container">
-        <h1 class="display-4 register-greetings h1-responsive">Php Class</h1>
+        <h1 class="display-4 register-greetings h1-responsive">Php Assignment 3</h1>
         <hr class="my-4">
-        <p class="lead register-heading">8th Class PHP (Last Class)</p>
+        <p class="lead register-heading">Test Create Agent Function</p>
     </div>
 </div>
 
@@ -45,16 +41,32 @@
     <div class="container">
         <div class="register-main">
             <div class="register-box">
-                <?php 
+                <div class="" id="">
+                    <?php 
+                        include('php/includes/functions.php');
 
-                ?>
+                        $new_agent = array(
+                            "AgtFirstName" => "Tomi",
+                            "AgtMiddleInitial" => "T",
+                            "AgtLastName" => "Kola",
+                            "AgtBusPhone" => "(403) 616-8427",
+                            "AgtEmail" => "tolskol@gmail.com",
+                            "AgtPosition" => "Senior Agent",
+                            "AgencyId" => 2);
 
-                <h4 class="text-center">Last Class</h4> 
-                <hr>
-                           
+                        $agent_result = createAgent($new_agent);
+
+                        if ($agent_result) {
+                            echo '<span style="color:green;">New Agent created</span>';
+                        } else {
+                            echo '<span style="color:red;"> An error occured during creation...</span>';
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </main>
 <!-- End Main -->
 
