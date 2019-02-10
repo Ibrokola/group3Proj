@@ -12,9 +12,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="gallery.php"><span class="d-md-block"><i class="far fa-images fa-2x" title="Gallery"></i></span><span class="d-md-none nav-hidden">Gallery</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="customers.php"><span class="d-md-block"><i class="fas fa-users fa-2x" title="Customers"></i></span><span class="d-md-none nav-hidden">Customers</span></a>
-                </li>
+                <?php
+                    if(isset($_SESSION['logged_in'])){ 
+                        print('<li class="nav-item">
+                            <a class="nav-link" href="customers.php"><span class="d-md-block"><i class="fas fa-users fa-2x" title="Customers"></i></span><span class="d-md-none nav-hidden">Customers</span></a>
+                        </li>');
+                    }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php"><span class="d-md-block"><i class="fas fa-mail-bulk fa-2x" title="Contact"></i></span><span class="d-md-none nav-hidden">Contact</span></a>
                 </li>

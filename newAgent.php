@@ -33,7 +33,9 @@
     <hr class="my-4">
     <p class="lead register-heading">Add a new agent</p>
 
-    <?php print("You have been on this site for ". (time() - $_SESSION["start_time"])."<br>"); ?>
+    <?php 
+        // print("You have been on this site for ". (time() - $_SESSION["start_time"])."<br>"); 
+    ?>
 </div>
 </div>
 
@@ -55,9 +57,9 @@
 
         <div class="" id="">
             <?php
-                // if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                //     header("Location: http://localhost/login.php");
-                // }
+                if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+                    header("Location: http://localhost/login.php");
+                }
 
                 // print("You have been here for ". time() - $_SESSION['start_time'] . "<br>");
 
@@ -110,7 +112,7 @@
                 if (isset($error_msg)){
                     if($error_msg == "") {
 
-                        $result = createAgent($agent_data);
+                        $result = createAgentObj($agent_data);
 
                         if ($result) {
                             print("<span style='color:green;'>The Agent was added successfully...</span>");
@@ -126,7 +128,7 @@
             <!-- <h2 class="text-center">Add Agent</h2> -->
             <br>
             <br>
-            <form name="registerForm" method="post" action="#">
+            <form name="registerForm" method="POST" action="#">
                 <div class="form-row">
                     <div class="form-group col-md-5">
 

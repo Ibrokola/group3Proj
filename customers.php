@@ -1,10 +1,6 @@
 <?php
     include_once("php/includes/session_top.php");
 
-    // include_once("page6.php");
-
-    // include_once("page4.php");
-
     // GetCustomers(); // getting an array of customer objects...
 ?>
 
@@ -48,31 +44,44 @@
 
 <!-- Begin Main -->
 <main>
-<div class="container">
+<div class="container-fluid">
 
 <div class="register-main">
 
     <div class="register-box">
-        <div class="table-responsive-sm container" id="php-table-container">
+        <div class="table-responsive-lg" id="php-table-container">
             <table class='table table-hover'>
                 <?php 
-                    // foreach($customers as $cust) {
-                    //     print("<tr>");
-                        
-                    //     print("<td>" . $cust->id . "</td>");
-                    //     print("<td>" . $cust . "</td>");
-                    //     print("<td>" . $cust->address . "</td>");
-                    //     print("<td>" . $cust->city . "</td>");
-                    //     print("<td>" . $cust->prov . "</td>");
-                    //     print("<td>" . $cust->postal . "</td>");
-                    //     print("<td>" . $cust->country . "</td>");
-                    //     print("<td>" . $cust->homePhone . "</td>");
-                    //     print("<td>" . $cust->busPhone . "</td>");
-                    //     print("<td>" . $cust->email . "</td>");
-                    //     print("<td>" . $cust->agentId . "</td>");
+                include('php/includes/functions.php');
 
-                    //     print("</tr>");
-                    // }
+                $customers = getCustomers();
+
+                print("<tr> <th>ID</th> <th>Customer</th> <th>Address</th> <th>City</th> 
+                <th>Province</th> <th>Postal</th> <th>Country</th> <th>HPhone</th> 
+                <th>BPhone</th> <th>Email</th> <th>Agent ID</th> </tr>");
+                    foreach($customers as $cust) {
+                        print("<tr>");
+                        
+                        print("<td>" . $cust->id . "</td>");
+                        print("<td>" . $cust . "</td>");
+                        print("<td>" . $cust->address . "</td>");
+                        print("<td>" . $cust->city . "</td>");
+                        print("<td>" . $cust->prov . "</td>");
+                        print("<td>" . $cust->postal . "</td>");
+                        print("<td>" . $cust->country . "</td>");
+                        print("<td>" . $cust->homePhone . "</td>");
+                        print("<td>" . $cust->busPhone . "</td>");
+                        print("<td>" . $cust->email . "</td>");
+                        print("<td>" . $cust->agentId . "</td>");
+
+                        print("</tr>");
+                    }
+                    print('<br>');
+
+                    print('<br>');
+                    print('<br>');
+                    print('<br>');
+
                 ?>
             </table>
         </div>
