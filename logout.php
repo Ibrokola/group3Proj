@@ -2,5 +2,5 @@
     session_start();
 
     unset($_SESSION['logged_in']);
-    header("Location: http://localhost/assignment/index.php");
+    header("Location: http://127.0.0.1:8020/index.php");
 ?>

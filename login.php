@@ -1,5 +1,37 @@
 <?php 
     include_once('php/includes/session_top.php');
+/***************************************
+* Author: Ibraheem Kolawole
+* Date: February 11, 2019
+* Purpose: Login Page
+* Requires: Requires getUsers()
+****************************************/
+
+include_once('php/includes/functions.php');
+
+// $user_list = getUsers();
+
+// echo $user_list;
+
+// Putting this here breaks the aesthetics of the page during error rendering
+// However, this is the only way the header() function is going to work.
+if (isset($_POST['submit'])) {
+    $user_list = getUsers();
+
+    if (isset($user_list[$_POST["username"]])) {
+
+        if ($user_list[$_POST['username']] === $_POST["password"]){
+            // print("You are logged in!");
+            $_SESSION["logged_in"] = true;
+            header("Location: http://127.0.0.1:8020/newAgent.php");
+        } else {
+            print("<span style='color:red;'>That was not a correct username or password, please try again.</span>");
+        }
+    } else {
+        print("<span style='color:red;'>Please enter a correct user name or password, try again. </span>");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -51,33 +83,17 @@
         <div class="" id="">
             <?php 
 
-                include_once('php/includes/functions.php');
-
-                if (isset($_POST['submit'])) {
-                    $user_list = getUsers();
-                    if (isset($user_list[$_POST["username"]])) {
-                        if ($user_list[$_POST['username']] === $_POST["password"]){
-                            print("You are logged in!");
-                            $_SESSION["logged_in"] = true;
-                            header("Location: http://localhost/newAgent.php");
-                        } else {
-                            print("That was not a correct username or password, please try again.");
-                        }
-                    } else {
-                        print("That was not a correct username or password, please try again.");
-                    }
-                }
             ?>
             <div>
             <br>
             <br>
-                <form method="post" action="#">
+                <form method="POST" action="#">
                     <div class="form-row">
                         <div class="form-group col-md-6">
 
                             <label for="username"> <strong>Username</strong> </label>
                             <input type="text" class="form-control focus validate" name="username" 
-                            id="username" maxlength=20 placeholder="First Name">
+                            id="username" maxlength=20 placeholder="Username">
                             
                         </div>
                     </div>
@@ -92,7 +108,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="submit" class="btn btn-outline-success btn-block btn-outline" value="submit">
+                            <input type="submit" class="btn btn-outline-success btn-block btn-outline" name='submit' value="Login">
                         </div>
                     </div>
                 </form>
