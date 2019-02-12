@@ -12,30 +12,61 @@
                 <li class="nav-item">
                     <a class="nav-link" href="gallery.php"><span class="d-md-block"><i class="far fa-images fa-2x" title="Gallery"></i></span><span class="d-md-none nav-hidden">Gallery</span></a>
                 </li>
+
                 <?php
-                    if(isset($_SESSION['logged_in'])){ 
+                    if(isset($_SESSION['agent_logged_in'])){ 
                         print('<li class="nav-item">
                             <a class="nav-link" href="customers.php"><span class="d-md-block"><i class="fas fa-users fa-2x" title="Customers"></i></span><span class="d-md-none nav-hidden">Customers</span></a>
                         </li>');
                     }
                 ?>
+
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php"><span class="d-md-block"><i class="fas fa-mail-bulk fa-2x" title="Contact"></i></span><span class="d-md-none nav-hidden">Contact</span></a>
                 </li>
+                
+                <?php
+                    // Refactor this later....
+                    if(!isset($_SESSION['agent_logged_in']) && !isset($_SESSION['customer_logged_in'])){
+                        print(
+                        '<li class="nav-item">
+                            <a class="nav-link" href="register.php"><span class="d-md-block"><i class="fas fa-user-plus fa-2x" title="Register"></i></span><span class="d-md-none nav-hidden">Register</span></a>
+                        </li>');
+                    }
+
+                    // if(!isset($_SESSION['customer_logged_in'])){
+                    //     print(
+                    //         '<li class="nav-item">
+                    //             <a class="nav-link" href="register.php">
+                    //                 <span class="d-md-block"><i class="fas fa-user-plus fa-2x" title="Register"></i></span>
+                    //                 <span class="d-md-none nav-hidden">Register</span>
+                    //             </a>
+                    //         </li>');
+                    // }
+                ?>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="register.php"><span class="d-md-block"><i class="fas fa-plus-square fa-2x" title="Register"></i></span><span class="d-md-none nav-hidden">Register</span></a>
+                    <a class="nav-link" href="packages.php"><span class="d-md-block"><i class="fas fa-gift fa-2x" title="Packages"></i></span><span class="d-md-none nav-hidden">Register</span></a>
                 </li>
 
                 <?php
-                    if(isset($_SESSION['logged_in'])){ 
+                    if(isset($_SESSION['agent_logged_in'])){ 
                         print('<li class="nav-item">
-                            <a class="nav-link" href="newAgent.php"><span class="d-md-block"><i class="fas fa-user-plus fa-2x" title="New Agent"></i></span><span class="d-md-none nav-hidden">New Agent</span></a>
+                            <a class="nav-link" href="newAgent.php"><span class="d-md-block"><i class="fas fa-plus fa-2x" title="New Agent"></i></span><span class="d-md-none nav-hidden">New Agent</span></a>
+                        </li>');
+                    }
+                ?>
+
+                <?php
+                    if(isset($_SESSION['customer_logged_in'])){ 
+                        print('<li class="nav-item">
+                            <a class="nav-link" href="newAgent.php"><span class="d-md-block"><i class="fas fa-calendar-check fa-2x" title="New Booking"></i></span><span class="d-md-none nav-hidden">New Booking</span></a>
                         </li>');
                     }
                 ?>
 
                 <?php 
-                    if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true) {
+                    if ((isset($_SESSION["agent_logged_in"]) && $_SESSION["agent_logged_in"] === true) || (isset($_SESSION["customer_logged_in"]) && $_SESSION["customer_logged_in"] === true)) {
                         print('<li class="nav-item">
                             <a class="nav-link" href="logout.php"><span class="d-md-block"><i class="fas fa-sign-out-alt fa-2x" title="Logout"></i></span><span class="d-md-none nav-hidden">Logout</span></a>
                         </li>');
@@ -45,9 +76,10 @@
                         </li>');
                     }
                 ?>
-                <li class="nav-item">
+
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="links.php"><i class="fas fa-link fa-2x" title="links"></i></a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="testCreateAgents.php"><i class="fas fa-link fa-2x" title="links"></i></a>
                 </li> -->

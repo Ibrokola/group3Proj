@@ -57,8 +57,8 @@
 
         <div class="" id="">
             <?php
-                if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                    header("Location: http://localhost/login.php");
+                if(!isset($_SESSION["agent_logged_in"]) || $_SESSION["agent_logged_in"] !== true) {
+                    header("Location: http://127.0.0.1:8020/login.php");
                 }
 
                 // print("You have been here for ". time() - $_SESSION['start_time'] . "<br>");

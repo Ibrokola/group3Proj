@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 
         if ($user_list[$_POST['username']] === $_POST["password"]){
             // print("You are logged in!");
-            $_SESSION["logged_in"] = true;
+            $_SESSION["agent_logged_in"] = true;
             header("Location: http://127.0.0.1:8020/newAgent.php");
         } else {
             print("<span style='color:red;'>That was not a correct username or password, please try again.</span>");

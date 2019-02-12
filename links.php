@@ -5,6 +5,9 @@
 * Purpose: Looping through associative arrays and appending to table
 * Requires: variables.php page 
 ****************************************/
+
+include('php/includes/session_top.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

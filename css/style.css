@@ -41,6 +41,13 @@ footer {
     font-size: 45px;
 }
 
+.packages-display {
+    /* font-family: 'Marck Script', cursive; */
+    font-family: 'Aclonica', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
 .contact-greetings, .register-greetings {
     font-family: 'Aclonica', sans-serif;
     /* text-align: center; */
@@ -86,21 +93,32 @@ footer {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.agent > .card{
+.agent > .card {
     margin-top: 40px;
     border: #F3EAC5 solid 1px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02), 0 10px 10px rgba(0, 0, 0, 0.06);
 
 }
 
-.agent > .card:hover {
-
+.agent > .card:hover, .package:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     transition: all 0.8s ease-in-out;
-
 }
 
-.card-title {
+.package {
+    border: #fff solid 1px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02), 0 10px 10px rgba(0, 0, 0, 0.06);
+}
+
+a {
+    text-decoration: none;
+}
+
+.landing-para {
+    text-align: center;
+}
+
+.card-title, .landing-para {
 
     font-family: 'Berkshire Swash', cursive;
 
@@ -177,9 +195,15 @@ footer {
 
 .jumbotron-landing {
     background-image: url('https://images.pexels.com/photos/372098/pexels-photo-372098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=700&w=1260');
-    min-height: 680px;
+    min-height: 780px;
     color: white;
     background-size: cover;
+}
+
+.jumbotron-packages {
+    background-image: url('https://images.pexels.com/photos/1471686/pexels-photo-1471686.jpeg?cs=srgb&dl=bow-box-card-1471686.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
 }
 
 .index-greeting{
