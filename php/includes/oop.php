@@ -1,6 +1,6 @@
 <?php
 /***************************************
-* Authors: Ibraheem Kolawole
+* Authors: Ibraheem Kolawole,
 * Date: February 11, 2019
 * Purpose: Object Oriented Programming (OOP), Inheritance demonstration
 * Requires: internal php methods. __contruct() & __toString()
