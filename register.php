@@ -57,8 +57,18 @@
                             <form name="registerForm">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="clientName"> <strong>Full Name</strong> </label>
-                                        <input type="text" class="form-control focus validate" name="fullName" id="clientName" maxlength=20 placeholder="Full Name">
+                                        <label for="clientName"> <strong>First Name</strong> </label>
+                                        <input type="text" class="form-control focus validate" name="fullName" id="clientName" maxlength=20 placeholder="First Name">
+                                        <div class="focus-feedback">
+                                            Enter maximum of 20 characters!
+                                        </div>
+                                        <div class="validation">
+                                            FIrst Name required
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="clientName"> <strong>Last Name</strong> </label>
+                                        <input type="text" class="form-control focus validate" name="fullName" id="clientName" maxlength=20 placeholder="Last Name">
                                         <div class="focus-feedback">
                                             Enter maximum of 20 characters!
                                         </div>
@@ -66,34 +76,51 @@
                                             Name required
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-row">
+                                    <!-- <div class="form-group"> -->
+                                        <div class="form-group col-md-6">
+                                            <label for="clientEmail"> <strong>Email</strong> </label>
+                                            <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Email" name="email">
+                                            <div class="focus-feedback">
+                                                Enter a valid email with @ and .com!
+                                            </div>
+                                            <div class="validation">
+                                                Email required
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="clientPassword"> <strong>Password</strong> </label>
+                                            <input type="password" class="form-control focus validate" id="clientPassword" placeholder="Password" name="password">
+                                            <div class="focus-feedback">
+                                                Enter a valid password!
+                                            </div>
+                                            <div class="validation">
+                                                Password required
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
+                                </div>
+                                <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="clientEmail"> <strong>Email</strong> </label>
-                                        <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Email" name="email">
+                                        <label for="address1"> <strong>Address</strong></label>
+                                        <input type="text" class="form-control focus validate" id="address1" placeholder="1234 Main St" maxlength=50 name="address1">
                                         <div class="focus-feedback">
-                                            Enter a valid email with @ and .com!
+                                            Enter maximum of 50 characters!
                                         </div>
                                         <div class="validation">
-                                            Email required
+                                            Address required
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="address2"> <strong>Address 2</strong></label>
+                                        <input type="text" class="form-control focus" id="address2" placeholder="Apartment, studio, or floor" maxlength=50 name="address2">
+                                        <div class="focus-feedback">
+                                            Enter maximum of 50 characters!
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="address1"> <strong>Address</strong></label>
-                                    <input type="text" class="form-control focus validate" id="address1" placeholder="1234 Main St" maxlength=50 name="address1">
-                                    <div class="focus-feedback">
-                                        Enter maximum of 50 characters!
-                                    </div>
-                                    <div class="validation">
-                                        Address required
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address2"> <strong>Address 2</strong></label>
-                                    <input type="text" class="form-control focus" id="address2" placeholder="Apartment, studio, or floor" maxlength=50 name="address2">
-                                    <div class="focus-feedback">
-                                        Enter maximum of 50 characters!
-                                    </div>
-                                </div>
+                                                                    
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="city"> <strong>City</strong> </label>
@@ -130,15 +157,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
+                                <!-- <hr> -->
 
-                                <h3 class="destinations">Choose Canadian destinations of Interest</h3>
+                                <!-- <h3 class="destinations">Choose Canadian destinations of Interest</h3> -->
 
-                                <div class="form-group cities">
+                                <!-- <div class="form-group cities"> -->
                                     <!-- <div class="validation">
                                         Select atleast one city.
                                     </div> -->
-                                    <div class="form-check">
+                                    <!-- <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="calgary" name="calgary" value="calgary">
                                         <label class="form-check-label" for="calgary">
                                             Calgary
@@ -178,7 +205,7 @@
                                 <div class="form-group message-additional">
                                     <label for="message"><strong>Additional Message</strong></label> (optional)
                                     <textarea class="form-control" id="message" cols="30" rows="10"></textarea>
-                                </div>
+                                </div> -->
                                 <!-- type="submit" -->
                             <button type="button" class="btn btn-sm btn-outline-success" id="submitBtn" name="regBtn">Register</button>
                             <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button>
