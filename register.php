@@ -73,13 +73,23 @@
                                             Enter maximum of 20 characters!
                                         </div>
                                         <div class="validation">
-                                            Name required
+                                            Last Name required
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <!-- <div class="form-group"> -->
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
+                                            <label for="clientEmail"> <strong>Username</strong> </label>
+                                            <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Username" name="email">
+                                            <div class="focus-feedback">
+                                                Enter a valid username!
+                                            </div>
+                                            <div class="validation">
+                                                Username required
+                                            </div>
+                                        </div>    
+                                        <div class="form-group col-md-4">
                                             <label for="clientEmail"> <strong>Email</strong> </label>
                                             <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Email" name="email">
                                             <div class="focus-feedback">
@@ -89,7 +99,7 @@
                                                 Email required
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="clientPassword"> <strong>Password</strong> </label>
                                             <input type="password" class="form-control focus validate" id="clientPassword" placeholder="Password" name="password">
                                             <div class="focus-feedback">
@@ -113,8 +123,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="address2"> <strong>Address 2</strong></label>
-                                        <input type="text" class="form-control focus" id="address2" placeholder="Apartment, studio, or floor" maxlength=50 name="address2">
+                                        <label for="address2"> <strong>Country</strong></label>
+                                        <input type="text" class="form-control focus" id="address2" placeholder="Country" maxlength=50 name="address2">
                                         <div class="focus-feedback">
                                             Enter maximum of 50 characters!
                                         </div>
@@ -157,58 +167,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <hr> -->
 
-                                <!-- <h3 class="destinations">Choose Canadian destinations of Interest</h3> -->
-
-                                <!-- <div class="form-group cities"> -->
-                                    <!-- <div class="validation">
-                                        Select atleast one city.
-                                    </div> -->
-                                    <!-- <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="calgary" name="calgary" value="calgary">
-                                        <label class="form-check-label" for="calgary">
-                                            Calgary
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="toronto" id="toronto" name="toronto">
-                                        <label class="form-check-label" for="toronto">
-                                            Toronto
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="vancouver" id="vancouver" name="vancouver">
-                                        <label class="form-check-label" for="vancouver">
-                                            Vancouver
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="winnipeg" id="winnipeg" name="winnipeg">
-                                        <label class="form-check-label" for="winnipeg">
-                                            Winnipeg
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="edmonton" id="edmonton" name="edmonton">
-                                        <label class="form-check-label" for="edmonton">
-                                            Edmonton
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="saskatoon" id="saskatoon" name="saskatoon">
-                                        <label class="form-check-label" for="saskatoon">
-                                            Saskatoon
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group message-additional">
-                                    <label for="message"><strong>Additional Message</strong></label> (optional)
-                                    <textarea class="form-control" id="message" cols="30" rows="10"></textarea>
-                                </div> -->
                                 <!-- type="submit" -->
-                            <button type="button" class="btn btn-sm btn-outline-success" id="submitBtn" name="regBtn">Register</button>
-                            <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button>
+
+                                <button type="button" class="btn btn-sm btn-outline-success" id="submitBtn" name="regBtn">Register</button>
+                                <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button>
                         </form>
                     </div>
                 </div>
