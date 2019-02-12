@@ -175,7 +175,7 @@ class Package {
     public function getPackageId() {
         return $this->PackageId;
     }    
-    public function setAgentId ($id) {
+    public function setPackageId ($id) {
         $this->PackageId = $id;
     }
     public function getPackageName() {
@@ -218,3 +218,4 @@ class Package {
 
 
 ?>
+

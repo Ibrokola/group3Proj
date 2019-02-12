@@ -39,7 +39,7 @@
 
         <main>
 
-            <div class="container">
+            <div class="container-fluid">
 
                 <div class="contact-main">
 
@@ -47,7 +47,7 @@
 
                         <h2 class="agent-contacts">Your Packages</h2>
 
-                        <p class="description">Created just for you. Browse through and book today.</p>
+                        <p class="description lead fw-100">Created just for you. Browse through and book today.</p>
 
                         <br>
 
@@ -105,12 +105,47 @@
                         </div>
                         
                         <br>
-                        <hr>
+                        <br>
+                        <!-- <hr> -->
 
                         <h3 class="agent-contacts">Overview</h3>
-                        
-                        
-                        
+                    
+                        <div class="table-responsive-lg">
+                            <table class='table table-hover'>
+                                <?php 
+                                include('php/includes/functions.php');
+
+                                $packages = getPackages();
+
+                                print("<tr> <th>#</th> <th>Title</th> <th>Start Date</th> <th>End Date</th> 
+                                <th>Descritption</th> <th>Base Price (CAD) </th> <th>Agency Commission (CAD)</th> <th>Total (CAD)</th> <th> Book Now</th> </tr>");
+                                    foreach($packages as $pack) {
+
+                                        $total = $pack->getPkgBasePrice() + $pack->getPkgAgencyCommission();
+
+                                        print("<tr>");
+
+                                        print("<td>" . $pack->getPackageId() . "</td>");
+                                        print("<td>" . $pack->getPackageName() . "</td>");
+                                        print("<td>" . $pack->getPkgStartDate() . "</td>");
+                                        print("<td>" . $pack->getPkgEndDate() . "</td>");
+                                        print("<td>" . $pack->getPkgDesc() . "</td>");
+                                        print("<td>" . $pack->getPkgBasePrice() . "</td>");
+                                        print("<td>" . $pack->getPkgAgencyCommission() . "</td>");
+                                        print("<td>" . $total . "</td>");
+                                        print("<td> <button class='btn btn-outline-success btn-sm'>Book now</button> </td>");
+
+                                        print("</tr>");
+                                    }
+                                    print('<br>');
+
+                                    print('<br>');
+                                    print('<br>');
+                                    print('<br>');
+
+                                ?>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

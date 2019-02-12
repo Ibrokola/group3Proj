@@ -1,6 +1,6 @@
 <?php
 /***************************************
-* Author: Ibraheem Kolawole
+* Authors: Ibraheem Kolawole, Tim, Mathew
 * Date: February 11, 2019
 * Purpose: Agent insert function using prepared statements, getUsers(), getCustomers(), createAgentObj()
 * Requires: connection to mysql db.php, 
@@ -174,6 +174,54 @@ function getCustomers() {
     closeDB($dbh);
 
     return $customers;
+}
+
+function getPackages(){
+    // import DB
+    include('db.php');
+
+    // import the oop class
+    include("oop.php");
+
+    // use db function above
+    $dbh = connectDB();
+
+    // give the query command
+    $sql = "SELECT * FROM packages";
+
+    // run the query on the DB
+    $result = $dbh->query($sql);
+
+    // Do error checking
+    if(!$result) {
+        echo "ERROR: The sql failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: " . $dbh->errorno . "<br>";
+        echo "Error msg: " . $dbh->error . "<br>";
+    }
+
+    // Check for empty query, means customer is empty
+    if ($result === 0) {
+        echo "There were no results<br>";
+    }
+
+    $packages = array();
+    while ($pack = $result->fetch_assoc()){
+        $package = new Package(
+            $pack['PackageId'],
+            $pack['PkgName'],
+            $pack['PkgStartDate'],
+            $pack['PkgEndDate'],
+            $pack['PkgDesc'],
+            $pack['PkgBasePrice'],
+            $pack['PkgAgencyCommission']);
+    
+        $packages[] = $package;
+    }
+
+    closeDB($dbh);
+    
+    return $packages;
 }
 
 ?>
