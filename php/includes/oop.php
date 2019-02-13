@@ -1,6 +1,6 @@
 <?php
 /***************************************
-* Authors: Ibraheem Kolawole,
+* Authors: Ibraheem, Mathew, Tim, Collin
 * Date: February 11, 2019
 * Purpose: Object Oriented Programming (OOP), Inheritance demonstration
 * Requires: internal php methods. __contruct() & __toString()
@@ -200,13 +200,13 @@ class Package {
         return $this->PkgDesc;
     }    
     public function setPkgDesc ($pdesc) {
-        $this->Email= $pdesc;
+        $this->PkgDesc= $pdesc;
     }
     public function getPkgBasePrice() {
         return $this->PkgBasePrice;
     }    
     public function setPkgBasePrice ($pbaseprice) {
-        $this->Email= $pbaseprice;
+        $this->PkgBasePrice= $pbaseprice;
     }
     public function getPkgAgencyCommission() {
         return $this->PkgAgencyCommission;
@@ -215,7 +215,6 @@ class Package {
         $this->PkgAgencyCommission= $pcommiss;
     }
 }
-
 
 ?>
 
