@@ -207,7 +207,9 @@ class Package {
     protected $PkgBasePrice;
     protected $PkgAgencyCommission;
 
+
 //  ublic function __construct($id, $fname, $lname, $phone, $email) {
+
     public function __construct($id, $pname, $pstart, $pend, $pdesc, $pbaseprice, $pcommiss) {
             //Over-riding default constructor
         $this->PackageId            = $id;
