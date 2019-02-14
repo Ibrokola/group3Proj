@@ -198,6 +198,29 @@ class Agency {
     }
 }
 
+class Booking {
+
+    // public $BookingId;
+    public $BookingDate; 
+    public $BookingNo;
+    public $TravelerCount;
+    public $CustomerId;
+    public $TripTypeId;
+    public $PackageId;
+
+    // $bNo,
+
+    public function __construct($date, $bNo, $tCount, $cId, $tId, $pId){
+        $this->BookingDate = $date;
+        $this->BookingNo = $bNo;
+        $this->TravelerCount = $tCount;
+        $this->CustomerId = $cId;
+        $this->TripTypeId = $tId;
+        $this->PackageId = $pId;
+    }
+
+}
+
 class Package {
     protected $PackageId;
     protected $PkgName;

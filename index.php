@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
         <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="img/logo3.png">
     </head>
 
     <body>

@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.css">
         <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="img/logo3.png">
     </head>
 
     <body>
@@ -119,6 +121,10 @@
                                 <?php 
                                 include('php/includes/functions.php');
 
+                                $time = time();
+
+                                $current_date = date("Y-m-d", $time);
+
                                 $packages = getPackages();
 
                                 print("<tr> <th>#</th> <th>Packages</th> <th>Start Date</th> <th>End Date</th> 
@@ -150,7 +156,20 @@
                                         print("<td>" . $new_base . "</td>");
                                         print("<td>" . $new_com . "</td>");
                                         print("<td>" . $total . "</td>");
-                                        print("<td> <a href='bookpage.php'> <button class='btn btn-outline-success btn-sm'>Book now</button> </a></td>");
+
+                                        if ($current_date < $format_end ){
+                                            print("<td> 
+                                                    <form action='bookpage.php' method='post'>
+                                                        <button type='submit' class='btn btn-outline-success btn-sm' name='bookNow' value=" . $pack->getPackageId() . ">Book now</button>
+                                                    </form>
+                                            </td>");
+                                        } else {
+                                            print("<td>                                                     
+                                                    <button class='btn btn-danger btn-sm' name='bookNow' disabled title='promo expired'>Book now</button>
+                                            </td>");
+                                        }
+
+                                        // <a href='bookpage.php'> 
 
                                         print("</tr>");
                                     }

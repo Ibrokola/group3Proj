@@ -378,4 +378,78 @@ function getPackages() {
     return $packages;
 }
 
+function getPackage($pkgId){
+
+    include('db.php');
+
+    $dbh = connectDB();
+
+    // give the query command
+    $sql = "SELECT * FROM packages WHERE PackageId = '$pkgId' ";
+
+    // run the query on the DB
+    $result = $dbh->query($sql);
+
+    // Do error checking
+    if(!$result) {
+        echo "ERROR: The sql failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: " . $dbh->errorno . "<br>";
+        echo "Error msg: " . $dbh->error . "<br>";
+    }
+
+    if ($result===0){
+        echo 'There were no result';
+    }
+
+    $pck_result = $result->fetch_assoc();
+
+    closeDB($dbh);
+
+    return $pck_result;
+
+}
+
+function bookPackage($book_data) {
+        // import DB
+        include('db.php');
+
+        // use db function above
+        $dbh = connectDB();
+    
+        $sql = "INSERT INTO bookings (
+            BookingDate,
+            BookingNo,
+            TravelerCount,
+            CustomerId,
+            TripTypeId,
+            PackageId) VALUES (?,?,?,?,?,?)";
+    
+        $stmt = $dbh->prepare($sql);
+    
+        // import the oop class
+        include('oop.php');
+    
+        // create new customers from values passed in from $_POST
+        $fresh_booking = new Booking(
+            $date = $book_data["BookingDate"], 
+            $bNo = $book_data["BookingNo"], 
+            $tCount = $book_data["TravelerCount"], 
+            $cId = $book_data["CustomerId"], 
+            $tId = $book_data["TripTypeId"], 
+            $pId = $book_data["PackageId"]);
+
+        // get the object data and bind to prepared statement 
+        $stmt->bind_param('ssiisi', $fresh_booking->BookingDate, $fresh_booking->BookingNo, $fresh_booking->TravelerCount, $fresh_booking->CustomerId, $fresh_booking->TripTypeId, $fresh_booking->PackageId);
+    
+        // execute the db insert
+        $result = $stmt->execute();
+    
+        $stmt->close();
+    
+        closeDB($dbh);
+    
+        return $result;   
+}
+
 ?>

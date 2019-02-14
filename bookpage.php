@@ -4,10 +4,12 @@
     if(!isset($_SESSION['customer_logged_in']) || $_SESSION['customer_logged_in'] !== true && !isset($_SESSION["customer_logged_in_id"])) {
         header("Location: http://127.0.0.1:8020/login.php");
     }
+
 /***************************************
 * Authors: Ibraheem, Tim, Mathew, Collin
 * Date: February 15, 2019
-****************************************/ 
+****************************************/
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +26,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.css">
         <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="img/logo3.png">
     </head>
 
     <body>
@@ -60,65 +64,173 @@
                     <div class="register-box">
 
                         <?php
+                            
+                            // $packageId;
+                            if (isset($_POST['bookNow'])) {
+                                $packageId = $_POST['bookNow'];
+                                $_SESSION['packageId'] = $packageId;
+                            }
 
+                            $book_data;
+
+                            if (isset($_POST["bookBtn"])) {
+
+                                if (!empty($_POST)) {
+                                    
+                                    // echo $_POST;
+
+                                    foreach ($_POST as $key => $value){
+                                        $book_data[$key] = $value;
+
+                                    }
+                                }
+
+                                $any_err = "";
+
+                                if(empty(trim($_POST['BookingDate']))) {
+                                    $any_err .= "Date required";
+                                    
+                                    print('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        Date required
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>');
+                                }
+
+                                if(empty(trim($_POST['TravelerCount']))) {
+                                    $any_err .= "Number of people travelling required";
+
+                                    print('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            Number of people travelling required
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>');
+                                }
+
+                                if(empty(trim($_POST['TripTypeId']))) {
+                                    $any_err .= "Trip type required";
+
+                                    print('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        Trip type required
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>');
+                                }
+
+                            }
+
+                            include("php/includes/functions.php");
+
+                            if(isset($any_err)) {
+                                
+                                if($any_err == '') {
+                                    
+                                    $result_book = bookPackage($book_data);
+
+                                    // echo $result_book;
+
+                                    if($result_book) {
+                                        print('
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                Package booked successfully!
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>');
+                                    } else {
+                                        print('
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                OOps!, something went wrong. Please try again.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>');
+                                    }
+                                }
+                            }
+
+
+
+                            $selected_pck = getPackage($_SESSION['packageId']);
+
+                            // print_r($selected_pck);
+
+                            $new_base = round($selected_pck["PkgBasePrice"], 2);
+                            $new_com = round($selected_pck["PkgAgencyCommission"], 2);
+
+                            $total = $new_base + $new_com;
+
+                                print(
+                                    '
+                                    <div class="row">
+                                        <div class="col-md-6">');
+                                            print('<div class="card">');
+                                                print('<ul class="list-group list-group-flush">');
+                                                    print('<li class="list-group-item"><strong>Package</strong>: ' . $selected_pck["PkgName"] . '</li>');
+                                                    print('<li class="list-group-item"><strong>Description</strong>: ' . $selected_pck["PkgDesc"] . '</li>');
+                                                    print('<li class="list-group-item"><strong>Base Price (CAD) </strong>: ' . $new_base . '</li>');
+                                                    print('<li class="list-group-item"><strong>Commission (CAD) </strong>: ' . $new_com . '</li>');
+                                                    print('<li class="list-group-item"><strong>Total (CAD) </strong>: ' . $total . '</li>');
+                                                print('</ul>');
+                                            print('</div>');
+                                print('</div>
+                                    </div>
+                                    ');
+
+                            echo '<br>';
+                            echo '<br>';
+                            echo '<br>';
                         ?>
-                            <form method='POST' name="registerForm" action="#">
+
+
+                            <form method='POST' name="bookForm" action="#">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="PackageName"> <strong>Package Name</strong> </label>
-                                        <!-- Change to select field -->
-                                        <input type="text" class="form-control focus validate" name="PackageName" id="PackageName" maxlength=20 placeholder="Package Name">
-                                        <!-- <div class="focus-feedback">
-                                            Enter maximum of 20 characters!
-                                        </div>
-                                        <div class="validation">
-                                            FIrst Name required
-                                        </div> -->
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="tripDate"> <strong>Date</strong> </label>
-                                        <input type="text" class="form-control focus validate" name="tripDate" id="tripDate" maxlength=20 placeholder="Trip Date">
-                                        <!-- <div class="focus-feedback">
-                                            Enter maximum of 20 characters!
-                                        </div>
-                                        <div class="validation">
-                                            Last Name required
-                                        </div> -->
+                                        <label for="BookingDate"> <strong>Date</strong> </label>
+                                        <input type="date" class="form-control focus validate" name="BookingDate" id="BookingDate">
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="customerId"> <strong>Customer</strong> </label>
-                                        <input type="text" class="form-control focus validate" id="customerId" placeholder="Customer ID" name="customerId">
-                                        <!-- <div class="focus-feedback">
-                                            Enter a valid username!
-                                        </div>
-                                        <div class="validation">
-                                            Username required
-                                        </div> -->
-                                    </div>    
-                                    <div class="form-group col-md-4">
-                                        <label for="pckgPrice"> <strong>Price</strong> </label>
-                                        <input type="email" class="form-control focus validate" id="pckgPrice" placeholder="Price" name="pckgPrice">
-                                        <!-- <div class="focus-feedback">
-                                            Enter a valid email with @ and .com!
-                                        </div>
-                                        <div class="validation">
-                                            Email required
-                                        </div> -->
+                                    <div class="form-group col-md-6">
+                                        <label for="tripDate"> <strong>Number of Travellers</strong> </label>
+                                        <input type="number" class="form-control focus validate" name="TravelerCount" id="TravelerCount">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <!-- <div class="form-group col-md-4"> -->
+                                        <!-- <label for="customerId"> <strong>Customer</strong> </label> -->
+                                        <input type="hidden" class="form-control focus validate" id="customerId" name="CustomerId" value='<?php echo $_SESSION["customer_logged_in_id"]; ?>'>
+                                        <input type="hidden" class="form-control focus validate" id="PackageId" name="PackageId" value='<?php echo $_SESSION['packageId']; ?>'>
+                                    <!-- </div> -->
+
+                                    <div class="form-group col-md-6">
+                                        <label for="tripAgency"> <strong>Tripe Type</strong> </label>
+                                    
+                                        <select class="form-control" name="TripTypeId" id="tripAgency">
+                                            <option>--------</option> 
+                                            <option value="B">(B)-Business</option>
+                                            <option value="G">(G)-Group</option>
+                                            <option value="G">(L)-Leisure</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                 
                                 </div>
                                                                     
-                                <div class="form-row">
                                 
+                                
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <!-- type="submit" -->
+                                        <button type="submit" class="btn btn-block btn-outline-success" id="submitBtn" name="bookBtn">Book</button>
+                                        <!-- <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button> -->
+                                    </div>
                                 </div>
-
-                                <!-- type="submit" -->
-                                <button type="submit" class="btn btn-sm btn-outline-success" id="submitBtn" name="bookBtn">Book</button>
-                                <!-- <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button> -->
                         </form>
                     </div>
                 </div>
