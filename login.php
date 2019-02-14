@@ -15,22 +15,62 @@ include_once('php/includes/functions.php');
 
 // Putting this here breaks the aesthetics of the page during error rendering
 // However, this is the only way the header() function is going to work.
+
+$error_msg = '';
+
 if (isset($_POST['submit'])) {
-    $user_list = getUsers();
 
-    if (isset($user_list[$_POST["username"]])) {
+    $agent_list = getUsers('users.txt');
+    
+    $customer_list = getUsers('customers.txt');
+    
+    $getUsername_list = getUsername('customers.txt');
 
-        if ($user_list[$_POST['username']] === $_POST["password"]){
+    if (isset($agent_list[$_POST["username"]])) {
+
+        if ($agent_list[$_POST['username']] === $_POST["password"]){
             // print("You are logged in!");
             $_SESSION["agent_logged_in"] = true;
+
             header("Location: http://127.0.0.1:8020/newAgent.php");
+            
         } else {
-            print("<span style='color:red;'>That was not a correct username or password, please try again.</span>");
+            print('
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            That was not a correct username or password, please try again.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
+            // print("<span style='color:red;'>That was not a correct username or password, please try again.</span>");
         }
-    } else {
-        print("<span style='color:red;'>Please enter a correct user name or password, try again. </span>");
+    } 
+    // else {
+    //     print("<span style='color:red;'>Please enter a correct user name or password, try again. </span>");
+    // }
+    elseif (isset($customer_list[$_POST["username"]])) {
+        if ($customer_list[$_POST["username"]] === $_POST["password"]){
+
+            $currentCust = $getUsername_list[$_POST['username']];
+
+            $sql = "SELECT CustomerId FROM customers WHERE CustFirstName = '$currentCust' ";
+
+            $customer_id = getCustomerId($sql);
+
+            $_SESSION["customer_logged_in"] = true;
+
+            $_SESSION["customer_logged_in_id"] = $customer_id['CustomerId'];
+
+            // echo $customer_id['CustomerId'];
+
+            header("Location: http://127.0.0.1:8020/packages.php");
+
+        } else {
+            $error_msg .= 'That was not a correct username or password, please try again.';
+        }
     }
-}
+
+} 
 
 ?>
 
@@ -79,13 +119,19 @@ if (isset($_POST['submit'])) {
 <div class="register-main">
 
     <div class="register-box">
+        <?php 
 
+        if (!empty($error_msg) > 0)
+            print('
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                $error_msg
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
+        ?>
         <div class="" id="">
-            <?php 
-
-            ?>
             <div>
-            <br>
             <br>
                 <form method="POST" action="#">
                     <div class="form-row">
@@ -106,6 +152,12 @@ if (isset($_POST['submit'])) {
                             
                         </div>
                     </div>
+                    <?php 
+                        print('Don\'t have an account? Kindly <a href="register.php" style="color:green;">Register</a>');
+
+                        print('<br>');
+                        print('<br>');
+                    ?>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input type="submit" class="btn btn-outline-success btn-block btn-outline" name='submit' value="Login">

@@ -107,7 +107,7 @@
                     }
                 }
 
-                include_once("php/includes/functions.php");
+                include("php/includes/functions.php");
 
                 if (isset($error_msg)){
                     if($error_msg == "") {

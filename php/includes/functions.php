@@ -108,16 +108,114 @@ function createAgentObj($agent_data) {
     return $result;
 }
 
+function getUsers($file_name){
 
-function getUsers(){
-    $user_array = file("users.txt");
+    $user_array = file($file_name);
 
     $users = array();
+    
     foreach ($user_array as $row) {
         $items = explode(", ", $row);
         $users[trim($items[0])] = trim($items[1]);
     }
+
     return $users;
+
+}
+
+function getUsername($file_name){
+
+    $name_array = file($file_name);
+    $users_name = array();
+
+    foreach ($name_array as $name_row) {
+        $items = explode(", ", $name_row);
+        $users_name[trim($items[0])] = trim($items[2]);
+    }
+
+    return $users_name;
+
+}
+
+function createCustomerWithPass($cust_data) {
+
+    // import DB
+    include('db.php');
+
+    // use db function above
+    $dbh = connectDB();
+
+    $sql = "INSERT INTO customers (
+        CustFirstName,
+        CustLastName,
+        CustAddress,
+        CustCity,
+        CustProv,
+        CustPostal,
+        CustCountry,
+        CustHomePhone,
+        CustBusPhone,
+        CustEmail,
+        AgentId) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+    $stmt = $dbh->prepare($sql);
+
+    // import the oop class
+    include('oop.php');
+
+    // create new customers from values passed in from $_POST
+    $fresh_cust = new NewCustomer(
+        $fname = $cust_data["CustFirstName"],
+        $lname = $cust_data["CustLastName"],
+        $email = $cust_data["CustEmail"],
+        $add = $cust_data["CustAddress"],
+        $country = $cust_data["CustCountry"],
+        $city = $cust_data["CustCity"],
+        $prov = $cust_data["CustProv"],
+        $post = $cust_data["CustPostal"],
+        $hphone = $cust_data["CustHomePhone"],
+        $phone = $cust_data["CustBusPhone"],
+        $agtId = $cust_data["AgentId"]);
+
+    // get the object data and bind to prepared statement 
+    $stmt->bind_param('ssssssssssi', $fresh_cust->firstName, $fresh_cust->lastName, $fresh_cust->address, $fresh_cust->city, $fresh_cust->prov, $fresh_cust->postal, $fresh_cust->country, $fresh_cust->homePhone, $fresh_cust->busPhone, $fresh_cust->email, $fresh_cust->agentId);
+
+    // execute the db insert
+    $result = $stmt->execute();
+
+    $stmt->close();
+
+    closeDB($dbh);
+
+    return $result;
+
+}
+
+function getCustomerId($sql) {
+
+    // import DB
+    include('db.php');
+
+    // use db function above
+    $dbh = connectDB();
+
+    $result = $dbh->query($sql);
+
+    // Do error checking
+    if(!$result) {
+        echo "ERROR: The sql failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: " . $dbh->errorno . "<br>";
+        echo "Error msg: " . $dbh->error . "<br>";
+    }
+
+    // $customer = $result;
+
+    $cust_result = $result->fetch_assoc();
+
+    closeDB($dbh);
+
+    return $cust_result;
 }
 
 function getCustomers() {
@@ -223,5 +321,7 @@ function getPackages(){
     
     return $packages;
 }
+
+
 
 ?>

@@ -38,7 +38,6 @@ class Customer extends Person {
 
     public function __construct($id, $fname, $lname, $add, $city, $prov, $post, $country, $hphone, $phone, $email, $agtId) 
     {
-
         parent::__construct($id, $fname, $lname, $phone, $email);
 
         $this->address = $add;
@@ -49,6 +48,35 @@ class Customer extends Person {
         $this->homePhone = $hphone;
         $this->agentId = $agtId;
     }  
+}
+
+class NewCustomer {
+    public $firstName;
+    public $lastName;
+    public $email;
+    public $address;
+    public $country;
+    public $city;
+    public $prov;
+    public $postal;
+    public $homePhone;
+    public $busPhone;
+    public $agentId;
+
+    public function __construct($fname, $lname, $email, $add, $country, $city, $prov, $post, $hphone, $phone, $agtId) {
+        $this->firstName = $fname;
+        $this->lastName = $lname;
+        $this->busPhone = $phone;
+        $this->address = $add;
+        $this->city = $city;
+        $this->prov = $prov;
+        $this->postal = $post;
+        $this->country = $country;
+        $this->homePhone = $hphone;
+        $this->busPhone = $phone;
+        $this->email = $email;
+        $this->agentId = $agtId;
+    }
 }
 
 // Agent Class for last Assignment
