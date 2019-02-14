@@ -121,17 +121,30 @@
                                 <th>Descritption</th> <th>Base Price (CAD) </th> <th>Agency Commission (CAD)</th> <th>Total (CAD)</th> <th> Book Now</th> </tr>");
                                     foreach($packages as $pack) {
 
-                                        $total = $pack->getPkgBasePrice() + $pack->getPkgAgencyCommission();
+                                        $start_date = $pack->getPkgStartDate();
+                                        $end_date = $pack->getPkgEndDate();
+
+                                        $new_start = new DateTime($start_date);
+                                        $new_end = new DateTime($end_date);
+
+                                        $format_start = $new_start->format('Y-m-d');
+                                        $format_end = $new_end->format('Y-m-d');
+
+                                        $new_base = round($pack->getPkgBasePrice(), 2);
+                                        $new_com = round($pack->getPkgAgencyCommission(), 2);
+
+                                        // $total = $pack->getPkgBasePrice() + $pack->getPkgAgencyCommission();
+                                        $total = $new_base + $new_com;
 
                                         print("<tr>");
 
                                         print("<td>" . $pack->getPackageId() . "</td>");
                                         print("<td>" . $pack->getPackageName() . "</td>");
-                                        print("<td>" . $pack->getPkgStartDate() . "</td>");
-                                        print("<td>" . $pack->getPkgEndDate() . "</td>");
+                                        print("<td>" . $format_start . "</td>");
+                                        print("<td>" . $format_end . "</td>");
                                         print("<td>" . $pack->getPkgDesc() . "</td>");
-                                        print("<td>" . $pack->getPkgBasePrice() . "</td>");
-                                        print("<td>" . $pack->getPkgAgencyCommission() . "</td>");
+                                        print("<td>" . $new_base . "</td>");
+                                        print("<td>" . $new_com . "</td>");
                                         print("<td>" . $total . "</td>");
                                         print("<td> <a href='bookpage.php'> <button class='btn btn-outline-success btn-sm'>Book now</button> </a></td>");
 
