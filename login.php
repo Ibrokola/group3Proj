@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 
 </div>
 
-<div class="jumbotron jumbotron-fluid jumbotron-php">
+<div class="jumbotron jumbotron-fluid jumbotron-login">
     <div class="container">
         <h1 class="display-4 register-greetings h1-responsive">Login</h1>
         <hr class="my-4">
@@ -108,19 +108,19 @@ if (isset($_POST['submit'])) {
 <div class="register-main">
 
     <div class="register-box">
-        <?php 
-
-        if (!empty($error_msg) > 0)
-            print('
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">'
-               . $error_msg .
-                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>');
-        ?>
         <div class="row">
             <div class='col-md-8 offset-md-2'>
+            <?php 
+
+                if (!empty($error_msg) > 0)
+                    print('
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">'
+                    . $error_msg .
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>');
+            ?>
             <br>
                 <form method="POST" action="#">
                     <!-- <div class="form-row"> -->

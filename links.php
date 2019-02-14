@@ -35,7 +35,7 @@ include('php/includes/session_top.php');
                 
             </div>
 
-            <div class="jumbotron jumbotron-fluid jumbotron-php">
+            <div class="jumbotron jumbotron-fluid jumbotron-links">
                 <div class="container">
                     <h1 class="display-4 register-greetings h1-responsive">links</h1>
                     <hr class="my-4">

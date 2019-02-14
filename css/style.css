@@ -178,6 +178,7 @@ a {
     background-size: cover;
     color: white;
     /* position: relative; */
+    min-height: 400px;
 
 }
 
@@ -191,6 +192,7 @@ a {
     background-image: url('https://images.pexels.com/photos/20967/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
     color: white;
+    min-height: 400px;
 }
 
 .jumbotron-landing {
@@ -204,6 +206,28 @@ a {
     background-image: url('https://images.pexels.com/photos/1471686/pexels-photo-1471686.jpeg?cs=srgb&dl=bow-box-card-1471686.jpg&fm=jpg');
     background-size: cover;
     color: white;
+    min-height: 400px;
+}
+
+.jumbotron-login {
+    background-image: url('https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?cs=srgb&dl=access-close-up-door-792034.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 450px;
+}
+
+.jumbotron-agent {
+    background-image: url('https://images.pexels.com/photos/684385/pexels-photo-684385.jpeg?cs=srgb&dl=adult-agent-approval-684385.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 400px;
+}
+
+.jumbotron-customer {
+    background-image: url('https://images.pexels.com/photos/1332191/pexels-photo-1332191.jpeg?cs=srgb&dl=banking-bill-breakfast-1332191.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 400px;
 }
 
 .index-greeting{

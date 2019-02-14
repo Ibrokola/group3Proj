@@ -35,7 +35,7 @@
 
 </div>
 
-<div class="jumbotron jumbotron-fluid jumbotron-php">
+<div class="jumbotron jumbotron-fluid jumbotron-agent">
 <div class="container">
     <h1 class="display-4 register-greetings h1-responsive">Add New Agents</h1>
     <hr class="my-4">
