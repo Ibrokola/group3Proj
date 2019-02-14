@@ -1,2 +1,2 @@
-fali, selfmade, Falilat
-tols, selfmade, Tobi
+fali, falikola, Falilat
+tols, tolskola, Tobi
