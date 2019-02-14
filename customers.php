@@ -1,7 +1,9 @@
 <?php
     include_once("php/includes/session_top.php");
-
-    // GetCustomers(); // getting an array of customer objects...
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
 
 </div>
 
-<div class="jumbotron jumbotron-fluid jumbotron-php">
+<div class="jumbotron jumbotron-fluid jumbotron-customer">
 <div class="container">
     <h1 class="display-4 register-greetings h1-responsive">Customers</h1>
     <hr class="my-4">

@@ -1,5 +1,13 @@
 <?php
     include('php/includes/session_top.php');
+
+    if(!isset($_SESSION["agent_logged_in"]) || $_SESSION["agent_logged_in"] !== true) {
+        header("Location: http://127.0.0.1:8020/login.php");
+    }
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,14 +35,14 @@
 
 </div>
 
-<div class="jumbotron jumbotron-fluid jumbotron-php">
+<div class="jumbotron jumbotron-fluid jumbotron-agent">
 <div class="container">
     <h1 class="display-4 register-greetings h1-responsive">Add New Agents</h1>
     <hr class="my-4">
     <p class="lead register-heading">Add a new agent</p>
 
     <?php 
-        // print("You have been on this site for ". (time() - $_SESSION["start_time"])."<br>"); 
+
     ?>
 </div>
 </div>
@@ -57,12 +65,6 @@
 
         <div class="" id="">
             <?php
-                if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-                    header("Location: http://localhost/login.php");
-                }
-
-                // print("You have been here for ". time() - $_SESSION['start_time'] . "<br>");
-
                 $agent_data;
                 if (isset($_POST["submit"])){
                     if (!empty($_POST)) {
@@ -107,7 +109,7 @@
                     }
                 }
 
-                include_once("php/includes/functions.php");
+                include("php/includes/functions.php");
 
                 if (isset($error_msg)){
                     if($error_msg == "") {
@@ -115,12 +117,30 @@
                         $result = createAgentObj($agent_data);
 
                         if ($result) {
-                            print("<span style='color:green;'>The Agent was added successfully...</span>");
+                            print('
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                The Agent was added successfully...
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>');
                         } else {
-                            print("<span style='color:red;'>The Agent wasn't added!!!, an error occured, contact Admin or try again...</span>");
+                            print(
+                                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    The Agent wasn\'t added!!!, an error occured, contact Admin or try again...
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>');
                         }
                     } elseif (!empty($error_msg) > 0){
-                        print("<h5 style='color:red;' class='register-heading'>" . $error_msg . "</h5>");
+                        print(
+                            '<div class="alert alert-danger alert-dismissible fade show" role="alert">'
+                            . $error_msg .
+                                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>');
                     }
                 } 
             ?>

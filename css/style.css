@@ -41,6 +41,13 @@ footer {
     font-size: 45px;
 }
 
+.packages-display {
+    /* font-family: 'Marck Script', cursive; */
+    font-family: 'Aclonica', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
 .contact-greetings, .register-greetings {
     font-family: 'Aclonica', sans-serif;
     /* text-align: center; */
@@ -86,21 +93,32 @@ footer {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.agent > .card{
+.agent > .card {
     margin-top: 40px;
     border: #F3EAC5 solid 1px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02), 0 10px 10px rgba(0, 0, 0, 0.06);
 
 }
 
-.agent > .card:hover {
-
+.agent > .card:hover, .package:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     transition: all 0.8s ease-in-out;
-
 }
 
-.card-title {
+.package {
+    border: #fff solid 1px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02), 0 10px 10px rgba(0, 0, 0, 0.06);
+}
+
+a {
+    text-decoration: none;
+}
+
+.landing-para {
+    text-align: center;
+}
+
+.card-title, .landing-para {
 
     font-family: 'Berkshire Swash', cursive;
 
@@ -160,6 +178,7 @@ footer {
     background-size: cover;
     color: white;
     /* position: relative; */
+    min-height: 400px;
 
 }
 
@@ -173,20 +192,49 @@ footer {
     background-image: url('https://images.pexels.com/photos/20967/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
     color: white;
+    min-height: 400px;
 }
 
 .jumbotron-landing {
     background-image: url('https://images.pexels.com/photos/372098/pexels-photo-372098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=700&w=1260');
-    min-height: 680px;
+    min-height: 780px;
     color: white;
     background-size: cover;
+}
+
+.jumbotron-packages {
+    background-image: url('https://images.pexels.com/photos/1471686/pexels-photo-1471686.jpeg?cs=srgb&dl=bow-box-card-1471686.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 400px;
+}
+
+.jumbotron-login {
+    background-image: url('https://images.pexels.com/photos/792034/pexels-photo-792034.jpeg?cs=srgb&dl=access-close-up-door-792034.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 450px;
+}
+
+.jumbotron-agent {
+    background-image: url('https://images.pexels.com/photos/684385/pexels-photo-684385.jpeg?cs=srgb&dl=adult-agent-approval-684385.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 400px;
+}
+
+.jumbotron-customer {
+    background-image: url('https://images.pexels.com/photos/1332191/pexels-photo-1332191.jpeg?cs=srgb&dl=banking-bill-breakfast-1332191.jpg&fm=jpg');
+    background-size: cover;
+    color: white;
+    min-height: 400px;
 }
 
 .index-greeting{
     font-family: 'Righteous', cursive;
 }
 .morning {
-    background: #E4F2FB;
+    background: #A3D3E1;
     padding: 10px;
     max-width: 200px;
     color: #F3F9F9;
@@ -211,6 +259,18 @@ footer {
     font-family: 'Metrophobic', sans-serif;
     border-radius: 15px;
 }
+
+.parallax{
+    /* Set a specific height */
+    height: 600px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* .navbar-brand {
     opacity: 1;
 } */

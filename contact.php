@@ -1,3 +1,10 @@
+<?php
+    include('php/includes/session_top.php');
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +35,42 @@
                 <div class="container">
                     <h1 class="display-4 contact-greetings h1-responsive">Contact Us</h1>
                     <hr class="my-4">
-                    <div class="comp-contacts">
-                        <ul>
-                            <li class="comp-contact-item"><strong>Email</strong>: info@travelexperts.ca</li>
-                            <li class="comp-contact-item"><strong>Address</strong>: 164 7ST SE, Calgary, T2G 1S7</li>
-                            <li class="comp-contact-item"><strong>Phone</strong>: +1 403 616 8080</li>
-                        </ul>
+                    <div class='row'>
+                    <?php
+
+                        include('php/includes/functions.php');
+
+                        $agencies = getAgencies();
+                        foreach($agencies as $agncy){
+
+                            print(
+                                '<div class="col-md-6">
+                                    <div class="comp-contacts text-center">');
+                                    print('<h5>Agency ' . $agncy->AgencyId . '</h5>');
+                                        print('<ul>');         
+                                            print('<li class="comp-contact-item"><strong>Address</strong>: ' . $agncy->AgncyAddress . '</li>');
+                                            print('<li class="comp-contact-item"><strong>City</strong>: ' . $agncy->AgncyCity . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Province</strong>: ' . $agncy->AgncyProv . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Post Code</strong>: ' . $agncy->AgncyPostal . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Country</strong>: ' . $agncy->AgncyCountry . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Tel</strong>: ' . $agncy->AgncyPhone . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Fax</strong>: ' . $agncy->AgncyFax . '</li>');
+                                        print('</ul>');
+                            print('</div>
+                                </div>');
+                        }
+                    ?>
+
+                    <!-- <div class='col-md-6'>
+                        <div class="comp-contacts float-right">
+                            <h5>Agency 2</h5>
+                            <ul>
+                                <li class="comp-contact-item"><strong>Email</strong>: info@travelexperts.ca</li>
+                                <li class="comp-contact-item"><strong>Address</strong>: 164 7ST SE, Calgary, T2G 1S7</li>
+                                <li class="comp-contact-item"><strong>Phone</strong>: +1 403 616 8080</li>
+                            </ul>
+                        </div>
+                    </div> -->
                     </div>
                 </div>
             </div>
@@ -57,12 +94,13 @@
                                 <div class="card">
                                     <img src="img/agent1.jpeg" class="card-img-top" alt="babs">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Babs Kola</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Janet Delton</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: babs@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 8234</li>
+                                        <li class="list-group-item"><strong>Email</strong>: janet.delton@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Senior Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-7801</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 1</li>
                                     </ul>
                                 </div>
                             </div>
@@ -70,12 +108,13 @@
                                 <div class="card">
                                     <img src="img/agent2.jpeg" class="card-img-top" alt="tobi">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Tobi Adegun</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Judy Lisle</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: tobi@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 8739</li>
+                                        <li class="list-group-item"><strong>Email</strong>: judy.lisle@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Intermediate Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-7802</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 1</li>
                                     </ul>
                                 </div>
                             </div>
@@ -83,12 +122,13 @@
                                 <div class="card">
                                     <img src="img/agent3.jpeg" class="card-img-top" alt="jide">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Jide Cole</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Fred J Smith</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: jide@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 9090</li>
+                                        <li class="list-group-item"><strong>Email</strong>: fred@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Junior Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-5555</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 2</li>
                                     </ul>
                                 </div>
                             </div>

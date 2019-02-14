@@ -1,10 +1,13 @@
 <?php 
 /***************************************
-* Author: Ibraheem Kolawole
-* Date: February 11, 2019
+* Author: Ibraheem, Mathew, Tim, Collin
+* Date: February 15, 2019
 * Purpose: Looping through associative arrays and appending to table
 * Requires: variables.php page 
 ****************************************/
+
+include('php/includes/session_top.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +35,7 @@
                 
             </div>
 
-            <div class="jumbotron jumbotron-fluid jumbotron-php">
+            <div class="jumbotron jumbotron-fluid jumbotron-links">
                 <div class="container">
                     <h1 class="display-4 register-greetings h1-responsive">links</h1>
                     <hr class="my-4">

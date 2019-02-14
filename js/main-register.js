@@ -6,7 +6,7 @@ let address1 = regForm.address1;
 let address2 = regForm.address2;
 let city = regForm.city;
 let province = regForm.province;
-let postCode = regForm.postCode;
+let postCode = regForm.CustPostal;
 
 let submitBtn = regForm.regBtn;
 let resetBtn = submitBtn.nextElementSibling;
@@ -42,21 +42,23 @@ arraySubs.forEach((arraySub) => {
             nonDisp.className = 'validation-error';
         }
 
-        if ((subVal === postVal) && (regEx.test(subVal))) {
-            e.preventDefault();
-            nonDisp.className = 'validation-error';
-        }
+        // if ((subVal === postVal) && (regEx.test(subVal))) {
+        //     e.preventDefault();
+        //     nonDisp.className = 'validation-error';
+        // }
+        
+        // || (subVal === postVal)) && (regEx.test(subVal) == true
 
-        if ((subVal || (subVal === postVal)) && (regEx.test(subVal) == true)){
-            subValidated();
-            regForm.reset();
+        if ((subVal)){
+            console.log('registered');
         }
 
     });
 
 });
 
-
+// subValidated();
+// regForm.reset();
 function subValidated(){
     let confirmSub = confirm('Are you sure you want to proceed?')
 

@@ -1,3 +1,10 @@
+<?php
+    include('php/includes/session_top.php');
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
+?>
 <!DOCTYPE html>
 <html lang="en">
 

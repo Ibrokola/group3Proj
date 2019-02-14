@@ -24,7 +24,7 @@
         $greeting = 'Good morning';
     }
 
-    print("<div class='$class'> <h3> $greeting </h3></div>");
+    print("<div class='$class wow fadeInLeft' data-wow-delay='300ms'> <h3> $greeting </h3></div>");
 
     print("<br>");
 ?>

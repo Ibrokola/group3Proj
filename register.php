@@ -1,3 +1,10 @@
+<?php
+    include('php/includes/session_top.php');
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,24 +55,147 @@
 
                     <div class="register-box">
 
-                    <?php
-    
-                    ?>
-                            <form name="registerForm">
+                        <?php
+                            $cust_data;
+                            if (isset($_POST["regBtn"])) {
+
+                                if (!empty($_POST)) {
+                                    
+                                    // echo $_POST;
+
+                                    foreach ($_POST as $key => $value){
+                                        $cust_data[$key] = $value;
+                                        
+                                        // if ($cust_data[$key] == 'UserName') {
+                                        //     print_r($cust_data[$key]);
+                                        // }
+
+                                    }
+                                }
+
+                                // echo implode(', ', $cust_data) . '<br>';
+
+                                $username = "";
+                                $any_err = "";
+
+                                if(empty(trim($_POST['UserName']))) {
+                                    $any_err .= "Username required";
+                                }
+
+                                if(empty(trim($_POST['password']))) {
+                                    $any_err .= "password required";
+                                }
+                                // TODO: Add an else here to check customers.txt if username already exists
+
+                                if(empty(trim($_POST['CustFirstName']))) {
+                                    $any_err .= "First Name required";
+                                }
+
+                                if(empty(trim($_POST['CustLastName']))) {
+                                    $any_err .= "Last Name required";
+                                }
+
+                                if(empty(trim($_POST['CustEmail']))) {
+                                    $any_err .= "Email required";
+                                }
+
+                                if(empty(trim($_POST['CustAddress']))) {
+                                    $any_err .= "Address required";
+                                }
+
+                                if(empty(trim($_POST['CustCountry']))) {
+                                    $any_err .= "Country required";
+                                }
+
+                                if(empty(trim($_POST['CustCity']))) {
+                                    $any_err .= "City required";
+                                }
+
+                                if(empty(trim($_POST['CustProv']))) {
+                                    $any_err .= "Province required";
+                                }
+
+                                if(empty(trim($_POST['CustPostal']))) {
+                                    $any_err .= "Postcode required";
+                                }
+                            }
+
+                            include("php/includes/functions.php");
+
+                            if(isset($any_err)) {
+                                
+                                if($any_err == '') {
+                                    
+                                    $result_cust = createCustomerWithPass($cust_data);
+
+                                    // echo $result_cust;
+
+                                    $fh = fopen("customers.txt", "a");
+
+                                    $customer_credentials = $cust_data['UserName'] . ', ' . $cust_data['password'] . ', ' . $cust_data['CustFirstName'] . PHP_EOL ;
+
+                                    fwrite($fh, $customer_credentials);
+
+                                    fclose($fh);
+                            
+                                    if($result_cust) {
+                                        print('
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                Your account has been created successful!
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>');
+                                    } else {
+                                        print('
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                OOps!, something went wrong. Please try again
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>');
+                                    }
+                                }
+                            }
+
+                        ?>
+                            <form method='POST' name="registerForm" action="#">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="clientName"> <strong>Full Name</strong> </label>
-                                        <input type="text" class="form-control focus validate" name="fullName" id="clientName" maxlength=20 placeholder="Full Name">
+                                        <label for="clientFirstName"> <strong>First Name</strong> </label>
+                                        <input type="text" class="form-control focus validate" name="CustFirstName" id="clientFirstName" maxlength=20 placeholder="First Name">
                                         <div class="focus-feedback">
                                             Enter maximum of 20 characters!
                                         </div>
                                         <div class="validation">
-                                            Name required
+                                            FIrst Name required
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
+                                        <label for="clientLastName"> <strong>Last Name</strong> </label>
+                                        <input type="text" class="form-control focus validate" name="CustLastName" id="clientLastName" maxlength=20 placeholder="Last Name">
+                                        <div class="focus-feedback">
+                                            Enter maximum of 20 characters!
+                                        </div>
+                                        <div class="validation">
+                                            Last Name required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="clientUser"> <strong>Username</strong> </label>
+                                        <input type="text" class="form-control focus validate" id="clientUser" placeholder="Username" name="UserName">
+                                        <div class="focus-feedback">
+                                            Enter a valid username!
+                                        </div>
+                                        <div class="validation">
+                                            Username required
+                                        </div>
+                                    </div>    
+                                    <div class="form-group col-md-4">
                                         <label for="clientEmail"> <strong>Email</strong> </label>
-                                        <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Email" name="email">
+                                        <input type="email" class="form-control focus validate" id="clientEmail" placeholder="Email" name="CustEmail">
                                         <div class="focus-feedback">
                                             Enter a valid email with @ and .com!
                                         </div>
@@ -73,28 +203,44 @@
                                             Email required
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address1"> <strong>Address</strong></label>
-                                    <input type="text" class="form-control focus validate" id="address1" placeholder="1234 Main St" maxlength=50 name="address1">
-                                    <div class="focus-feedback">
-                                        Enter maximum of 50 characters!
-                                    </div>
-                                    <div class="validation">
-                                        Address required
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address2"> <strong>Address 2</strong></label>
-                                    <input type="text" class="form-control focus" id="address2" placeholder="Apartment, studio, or floor" maxlength=50 name="address2">
-                                    <div class="focus-feedback">
-                                        Enter maximum of 50 characters!
+                                    <div class="form-group col-md-4">
+                                        <label for="clientPassword"> <strong>Password</strong> </label>
+                                        <input type="password" class="form-control focus validate" id="clientPassword" placeholder="Password" name="password">
+                                        <div class="focus-feedback">
+                                            Enter a valid password!
+                                        </div>
+                                        <div class="validation">
+                                            Password required
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
+                                        <label for="address1"> <strong>Address</strong></label>
+                                        <input type="text" class="form-control focus validate" id="address1" placeholder="1234 Main St" maxlength=50 name="CustAddress">
+                                        <div class="focus-feedback">
+                                            Enter maximum of 50 characters!
+                                        </div>
+                                        <div class="validation">
+                                            Address required
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="address2"> <strong>Country</strong></label>
+                                        <input type="text" class="form-control focus validate" id="address2" placeholder="Country" maxlength=50 name="CustCountry">
+                                        <div class="focus-feedback">
+                                            Enter maximum of 50 characters!
+                                        </div>
+                                        <div class="validation">
+                                            Country required
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
                                         <label for="city"> <strong>City</strong> </label>
-                                        <input type="text" class="form-control focus validate" id="city" placeholder="Calgary" maxlength="10" name="city">
+                                        <input type="text" class="form-control focus validate" id="city" placeholder="Calgary" maxlength="10" name="CustCity">
                                         <div class="focus-feedback">
                                             Can't enter more than 10 characters!
                                         </div>
@@ -108,7 +254,7 @@
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select> -->
-                                        <input type="text" class="form-control focus validate" id="province" placeholder="AB" maxlength="2" name="province">
+                                        <input type="text" class="form-control focus validate" id="province" placeholder="AB" maxlength="2" name="CustProv">
                                         <div class="focus-feedback">
                                             Can't enter more than 2 characters!
                                         </div>
@@ -118,7 +264,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="postCode"> <strong>Post Code</strong> </label>
-                                        <input type="text" class="form-control focus validate" id="postCode" placeholder="T3N 0M2" name="postCode">
+                                        <input type="text" class="form-control focus validate" id="postCode" placeholder="T3N 0M2" name="CustPostal">
                                         <div class="focus-feedback">
                                             Please enter post code in format T3N 0M2!
                                         </div>
@@ -127,58 +273,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
 
-                                <h3 class="destinations">Choose Canadian destinations of Interest</h3>
+                                <?php 
+                                    print('Already have an account? Kindly <a href="login.php" style="color:green;">Login</a>');
 
-                                <div class="form-group cities">
-                                    <!-- <div class="validation">
-                                        Select atleast one city.
-                                    </div> -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="calgary" name="calgary" value="calgary">
-                                        <label class="form-check-label" for="calgary">
-                                            Calgary
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="toronto" id="toronto" name="toronto">
-                                        <label class="form-check-label" for="toronto">
-                                            Toronto
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="vancouver" id="vancouver" name="vancouver">
-                                        <label class="form-check-label" for="vancouver">
-                                            Vancouver
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="winnipeg" id="winnipeg" name="winnipeg">
-                                        <label class="form-check-label" for="winnipeg">
-                                            Winnipeg
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="edmonton" id="edmonton" name="edmonton">
-                                        <label class="form-check-label" for="edmonton">
-                                            Edmonton
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="saskatoon" id="saskatoon" name="saskatoon">
-                                        <label class="form-check-label" for="saskatoon">
-                                            Saskatoon
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group message-additional">
-                                    <label for="message"><strong>Additional Message</strong></label> (optional)
-                                    <textarea class="form-control" id="message" cols="30" rows="10"></textarea>
-                                </div>
+                                    print('<br>');
+                                    print('<br>');
+                                ?>
+
                                 <!-- type="submit" -->
-                            <button type="button" class="btn btn-sm btn-outline-success" id="submitBtn" name="regBtn">Register</button>
-                            <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button>
+
+                                <button type="submit" class="btn btn-sm btn-outline-success" id="submitBtn" name="regBtn">Register</button>
+                                <button type="button" class="btn btn-sm btn-outline-info" id="resetBtn" name="resBtn">Reset</button>
                         </form>
                     </div>
                 </div>

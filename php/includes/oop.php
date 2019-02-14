@@ -1,6 +1,6 @@
 <?php
 /***************************************
-* Authors: Ibraheem Kolawole
+* Authors: Ibraheem, Mathew, Tim, Collin
 * Date: February 11, 2019
 * Purpose: Object Oriented Programming (OOP), Inheritance demonstration
 * Requires: internal php methods. __contruct() & __toString()
@@ -38,7 +38,6 @@ class Customer extends Person {
 
     public function __construct($id, $fname, $lname, $add, $city, $prov, $post, $country, $hphone, $phone, $email, $agtId) 
     {
-
         parent::__construct($id, $fname, $lname, $phone, $email);
 
         $this->address = $add;
@@ -49,6 +48,35 @@ class Customer extends Person {
         $this->homePhone = $hphone;
         $this->agentId = $agtId;
     }  
+}
+
+class NewCustomer {
+    public $firstName;
+    public $lastName;
+    public $email;
+    public $address;
+    public $country;
+    public $city;
+    public $prov;
+    public $postal;
+    public $homePhone;
+    public $busPhone;
+    public $agentId;
+
+    public function __construct($fname, $lname, $email, $add, $country, $city, $prov, $post, $hphone, $phone, $agtId) {
+        $this->firstName = $fname;
+        $this->lastName = $lname;
+        $this->busPhone = $phone;
+        $this->address = $add;
+        $this->city = $city;
+        $this->prov = $prov;
+        $this->postal = $post;
+        $this->country = $country;
+        $this->homePhone = $hphone;
+        $this->busPhone = $phone;
+        $this->email = $email;
+        $this->agentId = $agtId;
+    }
 }
 
 // Agent Class for last Assignment
@@ -148,6 +176,28 @@ class Agent {
 
 }
 
+class Agency {
+    public $AgencyId;
+    public $AgncyAddress;
+    public $AgncyCity;
+    public $AgncyProv;
+    public $AgncyPostal;
+    public $AgncyCountry;
+    public $AgncyPhone;
+    public $AgncyFax;
+
+    public function __construct($id, $add, $city, $prov, $post, $country, $phone, $fax){
+        $this->AgencyId = $id;
+        $this->AgncyAddress = $add;
+        $this->AgncyCity = $city;
+        $this->AgncyProv = $prov;
+        $this->AgncyPostal = $post;
+        $this->AgncyCountry = $country;
+        $this->AgncyPhone = $phone;
+        $this->AgncyFax = $fax;
+    }
+}
+
 class Package {
     protected $PackageId;
     protected $PkgName;
@@ -157,6 +207,8 @@ class Package {
     protected $PkgBasePrice;
     protected $PkgAgencyCommission;
 
+
+//  ublic function __construct($id, $fname, $lname, $phone, $email) {
 
     public function __construct($id, $pname, $pstart, $pend, $pdesc, $pbaseprice, $pcommiss) {
             //Over-riding default constructor
@@ -175,7 +227,7 @@ class Package {
     public function getPackageId() {
         return $this->PackageId;
     }    
-    public function setAgentId ($id) {
+    public function setPackageId ($id) {
         $this->PackageId = $id;
     }
     public function getPackageName() {
@@ -200,13 +252,13 @@ class Package {
         return $this->PkgDesc;
     }    
     public function setPkgDesc ($pdesc) {
-        $this->Email= $pdesc;
+        $this->PkgDesc= $pdesc;
     }
     public function getPkgBasePrice() {
         return $this->PkgBasePrice;
     }    
     public function setPkgBasePrice ($pbaseprice) {
-        $this->Email= $pbaseprice;
+        $this->PkgBasePrice= $pbaseprice;
     }
     public function getPkgAgencyCommission() {
         return $this->PkgAgencyCommission;
@@ -216,7 +268,5 @@ class Package {
     }
 }
 
-
 ?>
-
 
