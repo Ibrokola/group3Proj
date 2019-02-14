@@ -69,7 +69,7 @@
             <!-- End Landing Carousel -->
 
             <!-- Start landing Jumbotron -->
-            <div class="jumbotron jumbotron-fluid jumbotron-landing wow zoomIn" data-wow-delay="100ms">
+            <div class="jumbotron jumbotron-fluid jumbotron-landing wow zoomIn parallax" data-wow-delay="100ms">
                 <div class="container">
                     <?php include('php/includes/time.php'); ?>
                     <h1 class="display-4 index-greeting wow fadeInDown" data-wow-delay="450ms">Ready to see world?</h1>

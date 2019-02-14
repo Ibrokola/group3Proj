@@ -259,6 +259,18 @@ a {
     font-family: 'Metrophobic', sans-serif;
     border-radius: 15px;
 }
+
+.parallax{
+    /* Set a specific height */
+    height: 600px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* .navbar-brand {
     opacity: 1;
 } */
