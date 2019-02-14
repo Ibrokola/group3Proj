@@ -94,12 +94,13 @@
                                 <div class="card">
                                     <img src="img/agent1.jpeg" class="card-img-top" alt="babs">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Babs Kola</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Janet Delton</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: babs@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 8234</li>
+                                        <li class="list-group-item"><strong>Email</strong>: janet.delton@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Senior Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-7801</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 1</li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,12 +108,13 @@
                                 <div class="card">
                                     <img src="img/agent2.jpeg" class="card-img-top" alt="tobi">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Tobi Adegun</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Judy Lisle</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: tobi@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 8739</li>
+                                        <li class="list-group-item"><strong>Email</strong>: judy.lisle@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Intermediate Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-7802</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 1</li>
                                     </ul>
                                 </div>
                             </div>
@@ -120,12 +122,13 @@
                                 <div class="card">
                                     <img src="img/agent3.jpeg" class="card-img-top" alt="jide">
                                     <div class="card-body">
-                                        <h4 class="card-title h4-responsive"><strong>Jide Cole</strong></h4>
+                                        <h4 class="card-title h4-responsive"><strong>Fred J Smith</strong></h4>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Email</strong>: jide@travelexperts.ca</li>
-                                        <li class="list-group-item"><strong>Address</strong>: <br> 164 7ST SE, <br> Calgary, <br> T2G 1S7</li>
-                                        <li class="list-group-item"><strong>Phone</strong>: +1 403 616 9090</li>
+                                        <li class="list-group-item"><strong>Email</strong>: fred@travelexperts.com</li>
+                                        <li class="list-group-item"><strong>Position</strong>: Junior Agent</li>
+                                        <li class="list-group-item"><strong>Tel</strong>: +1 (403) 210-5555</li>
+                                        <li class="list-group-item"><strong>Agency</strong>: Agency 2</li>
                                     </ul>
                                 </div>
                             </div>

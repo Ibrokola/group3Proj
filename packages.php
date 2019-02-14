@@ -121,7 +121,7 @@
 
                                 $packages = getPackages();
 
-                                print("<tr> <th>#</th> <th>Title</th> <th>Start Date</th> <th>End Date</th> 
+                                print("<tr> <th>#</th> <th>Packages</th> <th>Start Date</th> <th>End Date</th> 
                                 <th>Descritption</th> <th>Base Price (CAD) </th> <th>Agency Commission (CAD)</th> <th>Total (CAD)</th> <th> Book Now</th> </tr>");
                                     foreach($packages as $pack) {
 
