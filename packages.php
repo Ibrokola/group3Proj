@@ -133,7 +133,7 @@
                                         print("<td>" . $pack->getPkgBasePrice() . "</td>");
                                         print("<td>" . $pack->getPkgAgencyCommission() . "</td>");
                                         print("<td>" . $total . "</td>");
-                                        print("<td> <button class='btn btn-outline-success btn-sm'>Book now</button> </td>");
+                                        print("<td> <a href='bookpage.php'> <button class='btn btn-outline-success btn-sm'>Book now</button> </a></td>");
 
                                         print("</tr>");
                                     }

@@ -1,20 +1,13 @@
 <?php 
     include_once('php/includes/session_top.php');
 /***************************************
-* Author: Ibraheem Kolawole
-* Date: February 11, 2019
+* Authors: Ibraheem, Mathew, Collin, Tim
+* Date: February 15, 2019
 * Purpose: Login Page
-* Requires: Requires getUsers()
+* Requires: Requires getUsers(), getUsername(), getCustomerId()
 ****************************************/
 
 include_once('php/includes/functions.php');
-
-// $user_list = getUsers();
-
-// echo $user_list;
-
-// Putting this here breaks the aesthetics of the page during error rendering
-// However, this is the only way the header() function is going to work.
 
 $error_msg = '';
 
@@ -35,13 +28,7 @@ if (isset($_POST['submit'])) {
             header("Location: http://127.0.0.1:8020/newAgent.php");
             
         } else {
-            print('
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            That was not a correct username or password, please try again.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>');
+            $error_msg .= 'That was not a correct username or password, please try again.';
             // print("<span style='color:red;'>That was not a correct username or password, please try again.</span>");
         }
     } 
@@ -123,9 +110,9 @@ if (isset($_POST['submit'])) {
 
         if (!empty($error_msg) > 0)
             print('
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                $error_msg
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">'
+               . $error_msg .
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>');

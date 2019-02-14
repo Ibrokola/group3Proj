@@ -40,7 +40,7 @@
                 <?php
                     if(isset($_SESSION['customer_logged_in'])){ 
                         print('<li class="nav-item">
-                            <a class="nav-link" href=""><span class="d-md-block"><i class="fas fa-calendar-check fa-2x" title="New Booking"></i></span><span class="d-md-none nav-hidden">New Booking</span></a>
+                            <a class="nav-link" href="bookpage.php"><span class="d-md-block"><i class="fas fa-calendar-check fa-2x" title="New Booking"></i></span><span class="d-md-none nav-hidden">New Booking</span></a>
                         </li>');
                     }
                 ?>
