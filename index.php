@@ -141,7 +141,9 @@
                         </div>
                     </div>
                         <br>
-                        <a href="packages.php"><button class='btn btn-outline-primary btn-block float-center more'>More</button></a>
+                        <div class="wow fadeInUp" data-wow-delay="250ms">
+                            <a href="packages.php"><button class='btn btn-outline-primary btn-block float-center more'>More</button></a>
+                        </div>
                 </div>
             </div>
         </main>
