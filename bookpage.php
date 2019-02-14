@@ -4,6 +4,10 @@
     if(!isset($_SESSION['customer_logged_in']) || $_SESSION['customer_logged_in'] !== true && !isset($_SESSION["customer_logged_in_id"])) {
         header("Location: http://127.0.0.1:8020/login.php");
     }
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Colin
+* Date: February 15, 2019
+****************************************/ 
 ?>
 <!DOCTYPE html>
 <html lang="en">

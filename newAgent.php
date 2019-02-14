@@ -4,6 +4,10 @@
     if(!isset($_SESSION["agent_logged_in"]) || $_SESSION["agent_logged_in"] !== true) {
         header("Location: http://127.0.0.1:8020/login.php");
     }
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
 ?>
 <!DOCTYPE html>
 <html lang="en">

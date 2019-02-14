@@ -322,6 +322,4 @@ function getPackages(){
     return $packages;
 }
 
-
-
 ?>

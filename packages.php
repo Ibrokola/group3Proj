@@ -1,5 +1,9 @@
 <?php
     include('php/includes/session_top.php');
+/***************************************
+* Authors: Ibraheem, Tim, Mathew, Collin
+* Date: February 15, 2019
+****************************************/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +112,7 @@
                         <br>
                         <!-- <hr> -->
 
-                        <h3 class="agent-contacts">Overview</h3>
+                        <h3 class="agent-contacts">Book Now</h3>
                     
                         <div class="table-responsive-lg">
                             <table class='table table-hover'>

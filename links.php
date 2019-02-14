@@ -1,7 +1,7 @@
 <?php 
 /***************************************
-* Author: Ibraheem Kolawole
-* Date: February 11, 2019
+* Author: Ibraheem, Mathew, Tim, Collin
+* Date: February 15, 2019
 * Purpose: Looping through associative arrays and appending to table
 * Requires: variables.php page 
 ****************************************/
