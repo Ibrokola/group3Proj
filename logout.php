@@ -15,7 +15,7 @@
 
     header("Location: http://127.0.0.1:8020/index.php");
 /***************************************
-* Authors: Ibraheem, Tim, Mathew, Colin
+* Authors: Ibraheem, Tim, Mathew, Collin
 * Date: February 15, 2019
 ****************************************/
 

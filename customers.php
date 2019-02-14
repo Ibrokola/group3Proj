@@ -1,7 +1,7 @@
 <?php
     include_once("php/includes/session_top.php");
 /***************************************
-* Authors: Ibraheem, Tim, Mathew, Colin
+* Authors: Ibraheem, Tim, Mathew, Collin
 * Date: February 15, 2019
 ****************************************/
 ?>
