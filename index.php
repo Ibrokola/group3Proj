@@ -83,7 +83,7 @@
 
             <h1 class="landing-greetings h1-responsive"> Welcome to travel experts</h1>
 
-            <p class='lead text-center'>The world is at your finger tips... Explore!!</p>
+            <p class='lead text-center'>The world is at your fingertips... Explore!!</p>
 
             <!-- End Landing Greetings -->
 
