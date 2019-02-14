@@ -176,6 +176,28 @@ class Agent {
 
 }
 
+class Agency {
+    public $AgencyId;
+    public $AgncyAddress;
+    public $AgncyCity;
+    public $AgncyProv;
+    public $AgncyPostal;
+    public $AgncyCountry;
+    public $AgncyPhone;
+    public $AgncyFax;
+
+    public function __construct($id, $add, $city, $prov, $post, $country, $phone, $fax){
+        $this->AgencyId = $id;
+        $this->AgncyAddress = $add;
+        $this->AgncyCity = $city;
+        $this->AgncyProv = $prov;
+        $this->AgncyPostal = $post;
+        $this->AgncyCountry = $country;
+        $this->AgncyPhone = $phone;
+        $this->AgncyFax = $fax;
+    }
+}
+
 class Package {
     protected $PackageId;
     protected $PkgName;
@@ -185,7 +207,7 @@ class Package {
     protected $PkgBasePrice;
     protected $PkgAgencyCommission;
 
-//        public function __construct($id, $fname, $lname, $phone, $email) {
+//  ublic function __construct($id, $fname, $lname, $phone, $email) {
     public function __construct($id, $pname, $pstart, $pend, $pdesc, $pbaseprice, $pcommiss) {
             //Over-riding default constructor
         $this->PackageId            = $id;

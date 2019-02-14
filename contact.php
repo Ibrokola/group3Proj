@@ -35,12 +35,42 @@
                 <div class="container">
                     <h1 class="display-4 contact-greetings h1-responsive">Contact Us</h1>
                     <hr class="my-4">
-                    <div class="comp-contacts">
-                        <ul>
-                            <li class="comp-contact-item"><strong>Email</strong>: info@travelexperts.ca</li>
-                            <li class="comp-contact-item"><strong>Address</strong>: 164 7ST SE, Calgary, T2G 1S7</li>
-                            <li class="comp-contact-item"><strong>Phone</strong>: +1 403 616 8080</li>
-                        </ul>
+                    <div class='row'>
+                    <?php
+
+                        include('php/includes/functions.php');
+
+                        $agencies = getAgencies();
+                        foreach($agencies as $agncy){
+
+                            print(
+                                '<div class="col-md-6">
+                                    <div class="comp-contacts text-center">');
+                                    print('<h5>Agency ' . $agncy->AgencyId . '</h5>');
+                                        print('<ul>');         
+                                            print('<li class="comp-contact-item"><strong>Address</strong>: ' . $agncy->AgncyAddress . '</li>');
+                                            print('<li class="comp-contact-item"><strong>City</strong>: ' . $agncy->AgncyCity . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Province</strong>: ' . $agncy->AgncyProv . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Post Code</strong>: ' . $agncy->AgncyPostal . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Country</strong>: ' . $agncy->AgncyCountry . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Tel</strong>: ' . $agncy->AgncyPhone . '</li>');
+                                            print('<li class="comp-contact-item"><strong>Fax</strong>: ' . $agncy->AgncyFax . '</li>');
+                                        print('</ul>');
+                            print('</div>
+                                </div>');
+                        }
+                    ?>
+
+                    <!-- <div class='col-md-6'>
+                        <div class="comp-contacts float-right">
+                            <h5>Agency 2</h5>
+                            <ul>
+                                <li class="comp-contact-item"><strong>Email</strong>: info@travelexperts.ca</li>
+                                <li class="comp-contact-item"><strong>Address</strong>: 164 7ST SE, Calgary, T2G 1S7</li>
+                                <li class="comp-contact-item"><strong>Phone</strong>: +1 403 616 8080</li>
+                            </ul>
+                        </div>
+                    </div> -->
                     </div>
                 </div>
             </div>

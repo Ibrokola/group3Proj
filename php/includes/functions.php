@@ -10,6 +10,9 @@
             mysqli_stmt_close()
 ****************************************/ 
 
+// For all get functions a single generic getfunc() could be used but
+// for educational demonstration and project purpose it's not made DRY
+
 function createAgent($agent_data) {
 
     include('db.php');
@@ -264,7 +267,6 @@ function getCustomers() {
             $cust["CustEmail"],
             $cust["AgentId"]);
 
-            // $id, $fname, $lname, $phone, $email, $add, $city, $prov, $post, $country, $hphone, $agtId
         // append the object to the array
         $customers[] = $customer;
     }
@@ -274,7 +276,61 @@ function getCustomers() {
     return $customers;
 }
 
-function getPackages(){
+
+function getAgencies() {
+    // import DB
+    include('db.php');
+
+    // import the oop class
+    include("oop.php");
+
+    // call db function above
+    $dbh = connectDB();
+
+    // give the query command
+    $sql = "SELECT * FROM agencies";
+
+    // run the query on the DB
+    $result = $dbh->query($sql);
+
+    // Do error checking
+    if(!$result) {
+        echo "ERROR: The sql failed to execute. <br>";
+        echo "SQL: $sql <br>";
+        echo "Error #: " . $dbh->errorno . "<br>";
+        echo "Error msg: " . $dbh->error . "<br>";
+    }
+
+    // Check for empty query, means customer is empty
+    if ($result === 0) {
+        echo "There were no results<br>";
+    }
+    
+    // If agencies exist, run the object query below
+    $agencies = array();
+
+    while ($agncy = $result->fetch_assoc()) {
+        $agency = new Agency(
+            $agncy['AgencyId'],
+            $agncy['AgncyAddress'],
+            $agncy['AgncyCity'],
+            $agncy['AgncyProv'],
+            $agncy['AgncyPostal'],
+            $agncy['AgncyCountry'],
+            $agncy['AgncyPhone'],
+            $agncy['AgncyFax']);
+
+        // append object to array
+        $agencies[] = $agency; 
+    }
+    
+    closeDB($dbh);
+
+    return $agencies;
+
+}
+
+function getPackages() {
     // import DB
     include('db.php');
 

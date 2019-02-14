@@ -55,6 +55,8 @@ if (isset($_POST['submit'])) {
         } else {
             $error_msg .= 'That was not a correct username or password, please try again.';
         }
+    } else {
+        $error_msg .= 'Please enter a correct user name or password, try again.';
     }
 
 } 
@@ -117,39 +119,39 @@ if (isset($_POST['submit'])) {
                 </button>
             </div>');
         ?>
-        <div class="" id="">
-            <div>
+        <div class="row">
+            <div class='col-md-8 offset-md-2'>
             <br>
                 <form method="POST" action="#">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <!-- <div class="form-row"> -->
+                        <div class="form-group">
 
                             <label for="username"> <strong>Username</strong> </label>
                             <input type="text" class="form-control focus validate" name="username" 
                             id="username" maxlength=20 placeholder="Username">
                             
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <!-- </div> -->
+                    <!-- <div class="form-row"> -->
+                        <div class="form-group">
 
                             <label for="password"> <strong>Password</strong> </label>
                             <input type="password" class="form-control focus validate" name="password" 
                             id="password" maxlength=20 placeholder="Password">
                             
                         </div>
-                    </div>
+                    <!-- </div> -->
                     <?php 
                         print('Don\'t have an account? Kindly <a href="register.php" style="color:green;">Register</a>');
 
                         print('<br>');
                         print('<br>');
                     ?>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <!-- <div class="form-row"> -->
+                        <div class="form-group">
                             <input type="submit" class="btn btn-outline-success btn-block btn-outline" name='submit' value="Login">
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </form>
             </div>
         </div>
