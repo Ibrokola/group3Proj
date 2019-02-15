@@ -6,6 +6,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end wow bounceInRight" id="navbarNav">
             <ul class="navbar-nav" id="navbar-cont">
+
+               <?php 
+               
+                // if (isset($_SESSION["customer_logged_in"]) && isset($_SESSION['customer_first_name'])){
+
+                //     $cust_name = $_SESSION['customer_first_name'];
+
+                //     print(
+                //         '<li class="nav-item">
+                //            <span style="margin-top:100px;"> Welcome ' . $cust_name . ' </span>
+                //         </li>');
+                // }
+
+               ?>
+
                 <li class="nav-item">
                     <a class="nav-link" href="index.php" data-toggle="tooltip" data-placement="bottom" title="home"><i class="fas fa-home fa-2x" alt="home"></i> <span class="sr-only">(current)</span><span class="d-md-none nav-hidden">Home</span></a>
                 </li>

@@ -18,3 +18,13 @@ Agent Object
     [agtPosition:protected] => Senior Agent
     [agencyId:protected] => 2
 )
+Agent Object
+(
+    [agtFirstName:protected] => RandomGuy
+    [agtMiddleInitial:protected] => R
+    [agtLastName:protected] => NewRandom
+    [agtBusPhone:protected] => 6393179321
+    [agtEmail:protected] => rand@gmail.com
+    [agtPosition:protected] => Junior
+    [agencyId:protected] => 1
+)

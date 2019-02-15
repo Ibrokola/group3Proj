@@ -48,6 +48,8 @@ if (isset($_POST['submit'])) {
 
             $_SESSION["customer_logged_in_id"] = $customer_id['CustomerId'];
 
+            $_SESSION['customer_first_name'] = $currentCust;
+
             // echo $customer_id['CustomerId'];
 
             header("Location: http://127.0.0.1:8020/packages.php");
