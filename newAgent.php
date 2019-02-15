@@ -156,8 +156,12 @@
 
                         <label for="phpFirstName"> <strong>First Name</strong> </label>
                         <input type="text" class="form-control focus validate" name="AgtFirstName" 
-                        id="phpFirstName" maxlength=20 placeholder="First Name" value='<?php if (isset($agent_data["AgtFirstName"])) 
-                        {echo $agent_data["AgtFirstName"];} else { echo "";}?>'>
+                        id="phpFirstName" maxlength=20 placeholder="First Name">
+
+                        <?php 
+                        // if (isset($agent_data["AgtFirstName"])) 
+                        // {echo $agent_data["AgtFirstName"];} else { echo "";}
+                        ?>
                         
                     </div>
                     <div class="form-group col-md-2">
@@ -171,9 +175,12 @@
 
                         <label for="phpLastName"> <strong>Last Name</strong> </label>
                         <input type="text" class="form-control focus validate" name="AgtLastName" 
-                        id="phpLastName" maxlength=20 placeholder="Last Name" 
-                        value='<?php if (isset($agent_data["AgtLastName"])) 
-                        {echo $agent_data["AgtLastName"];} else { echo "";}?>'>
+                        id="phpLastName" maxlength=20 placeholder="Last Name">
+
+                        <?php 
+                        // if (isset($agent_data["AgtLastName"])) 
+                        // {echo $agent_data["AgtLastName"];} else { echo "";}
+                        ?>
                         
                     </div>
                 </div>
@@ -181,9 +188,12 @@
                     <div class="form-group col-md-6">
                         <label for="phpPhone"> <strong>Business Phone No.</strong> </label>
                         <input type="text" class="form-control focus validate" name="AgtBusPhone" 
-                        id="phpPhone" maxlength=20 placeholder="Phone" 
-                        value='<?php if (isset($agent_data["AgtBusPhone"])) 
-                        {echo $agent_data["AgtBusPhone"];} else { echo "";}?>'>
+                        id="phpPhone" maxlength=20 placeholder="Phone">
+
+                        <?php 
+                        // if (isset($agent_data["AgtBusPhone"])) 
+                        // {echo $agent_data["AgtBusPhone"];} else { echo "";}
+                        ?>
                         
                     </div>
                     <div class="form-group col-md-6">

@@ -1,0 +1,20 @@
+Agent Object
+(
+    [agtFirstName:protected] => Titi
+    [agtMiddleInitial:protected] => T
+    [agtLastName:protected] => Kola
+    [agtBusPhone:protected] => 6393179321
+    [agtEmail:protected] => titi@gmail.com
+    [agtPosition:protected] => Junior Agent
+    [agencyId:protected] => 1
+)
+Agent Object
+(
+    [agtFirstName:protected] => Tobi
+    [agtMiddleInitial:protected] => T
+    [agtLastName:protected] => Kola
+    [agtBusPhone:protected] => 6393179321
+    [agtEmail:protected] => tobs@gmail.com
+    [agtPosition:protected] => Senior Agent
+    [agencyId:protected] => 2
+)
