@@ -168,8 +168,8 @@
                                                     print('<ul class="list-group list-group-flush">');
                                                         print('<li class="list-group-item"><strong>Package</strong>: ' . $selected_pck["PkgName"] . '</li>');
                                                         print('<li class="list-group-item"><strong>Description</strong>: ' . $selected_pck["PkgDesc"] . '</li>');
-                                                        print('<li class="list-group-item"><strong>Base Price (CAD) </strong>: ' . $selected_pck["PkgBasePrice"] . '</li>');
-                                                        print('<li class="list-group-item"><strong>Commission (CAD) </strong>: ' . $selected_pck["PkgAgencyCommission"] . '</li>');
+                                                        print('<li class="list-group-item"><strong>Base Price (CAD) </strong>: ' . $new_base . '</li>');
+                                                        print('<li class="list-group-item"><strong>Commission (CAD) </strong>: ' . $new_com . '</li>');
                                                         print('<li class="list-group-item"><strong>Total (CAD) </strong>: ' . $total . '</li>');
                                                     print('</ul>');
                                                 print('</div>');
