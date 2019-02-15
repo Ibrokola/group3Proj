@@ -1,3 +1,6 @@
 ibro, ibrokola  
 jide, jdkola
 karim, kbkola
+tim, timothy
+matt, mathew
+col, collin
